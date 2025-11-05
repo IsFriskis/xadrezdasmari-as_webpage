@@ -63,18 +63,23 @@ The CMS configuration is located at `public/admin/config.yml`. You can customize
 
 ### Authentication
 
+**For Local Development:**
+
+The project is configured with a test backend for local development. This allows you to test the CMS interface without authentication. The test backend stores changes in memory only and doesn't persist changes to Git.
+
+**For Production:**
+
 To use Decap CMS in production, you'll need to:
 
-1. Set up a Git Gateway (e.g., Netlify Identity)
-2. Configure authentication in `public/admin/config.yml`
-3. Enable Git Gateway in your hosting provider
-
-For local development, you can use the test backend by updating the config:
-
-```yaml
-backend:
-  name: test-repo
-```
+1. Update `public/admin/config.yml` to use git-gateway backend:
+   ```yaml
+   backend:
+     name: git-gateway
+     branch: main
+   ```
+2. Set up a Git Gateway (e.g., Netlify Identity or GitHub OAuth)
+3. Configure authentication in your hosting provider
+4. Enable Git Gateway in your hosting provider's settings
 
 ## Project Structure
 

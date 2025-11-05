@@ -1,6 +1,11 @@
+# For production, use git-gateway:
+# backend:
+#   name: git-gateway
+#   branch: main
+
+# For local development, use test-repo:
 backend:
-  name: git-gateway
-  branch: main # Branch to update (optional; defaults to main)
+  name: test-repo
 
 # Uncomment below to enable editorial workflow
 # publish_mode: editorial_workflow
