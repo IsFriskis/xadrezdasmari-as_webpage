@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+// Sample blog posts data
+const posts = [
+  {
+    title: 'Benvida ao Xadrez das Mariñas',
+    description: 'Descubre a nosa comunidade de xadrez e únete á nosa viaxe polo fascinante mundo do xadrez. O noso club ofrece actividades para todos os niveis, desde principiantes ata xogadores avanzados.',
+    date: '2024-11-01',
+    slug: 'benvida-xadrez-marinas',
+    image: '/images/chess-board.jpg'
+  },
+  {
+    title: 'Torneo de Outono 2024',
+    description: 'Anunciamos o noso torneo de outono. Todos os niveis son benvidos! O torneo terá lugar durante o mes de novembro e contará con premios para os gañadores.',
+    date: '2024-10-28',
+    slug: 'torneo-outono-2024',
+    image: '/images/tournament.jpg'
+  },
+  {
+    title: 'Leccións de Xadrez para Principiantes',
+    description: 'Comezamos as nosas clases de xadrez para principiantes. Apúntate agora! As clases son impartidas por monitores certificados e teñen lugar todas as semanas.',
+    date: '2024-10-20',
+    slug: 'leccions-principiantes',
+    image: '/images/lessons.jpg'
+  },
+  {
+    title: 'Historia do Xadrez en Galicia',
+    description: 'Un percorrido pola rica historia do xadrez na nosa terra, desde as súas orixes ata os nosos días. Descubre os grandes mestres galegos.',
+    date: '2024-10-15',
+    slug: 'historia-xadrez-galicia',
+  },
+  {
+    title: 'Estratexias para Mellor o teu Xogo',
+    description: 'Consellos e trucos dos nosos mestres para mellorar a túa técnica e estratexia no xadrez. Aprende a pensar como un mestre.',
+    date: '2024-10-10',
+    slug: 'estratexias-mellar-xogo',
+  },
+  {
+    title: 'O Xadrez e o Desenvolvemento Cognitivo',
+    description: 'Descubre como o xadrez pode axudar a desenvolver habilidades cognitivas en persoas de todas as idades, especialmente en nenos.',
+    date: '2024-10-05',
+    slug: 'xadrez-desenvolvemento-cognitivo',
+  }
+];
+---
+
+<BaseLayout 
+  title="Blog - Xadrez das Mariñas" 
+  description="Novas, artigos e actualizacións do Club de Ajedrez das Mariñas"
+>
+  <div class="blog-header">
+    <div class="container">
+      <h1>Blog</h1>
+      <p>Novas, artigos e actualizacións do noso club</p>
+    </div>
+  </div>
+
+  <section class="blog-content">
+    <div class="container">
+      <div class="blog-grid">
+        {posts.map(post => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .blog-header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .blog-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .blog-content {
+    padding: var(--space-2xl) 0;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  @media (max-width: 768px) {
+    .blog-header h1 {
+      font-size: 2rem;
+    }
+
+    .blog-header p {
+      font-size: 1rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .blog-content {
+      padding: var(--space-xl) 0;
+    }
+  }
+</style>

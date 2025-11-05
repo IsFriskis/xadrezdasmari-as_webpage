@@ -1,0 +1,108 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer>
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h3>Xadrez das Mariñas</h3>
+        <p>Club de Ajedrez das Mariñas</p>
+        <p>Promovendo o xadrez en Galicia</p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Ligazóns</h4>
+        <ul>
+          <li><a href="/">Inicio</a></li>
+          <li><a href="/blog">Blog</a></li>
+          <li><a href="/about">Sobre Nós</a></li>
+          <li><a href="/contact">Contacto</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Síguenos</h4>
+        <ul>
+          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Twitter</a></li>
+          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Xadrez das Mariñas. Todos os dereitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    background-color: var(--color-primary);
+    color: white;
+    padding: var(--space-xl) 0 var(--space-md);
+    margin-top: var(--space-2xl);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-section h3 {
+    color: white;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-section h4 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-section p {
+    color: var(--color-light);
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer-section ul {
+    list-style: none;
+  }
+
+  .footer-section ul li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .footer-section a {
+    color: var(--color-light);
+    transition: color var(--transition);
+  }
+
+  .footer-section a:hover {
+    color: white;
+  }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: var(--space-md);
+    text-align: center;
+  }
+
+  .footer-bottom p {
+    color: var(--color-light);
+  }
+
+  @media (max-width: 768px) {
+    footer {
+      padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: var(--space-md);
+    }
+  }
+</style>

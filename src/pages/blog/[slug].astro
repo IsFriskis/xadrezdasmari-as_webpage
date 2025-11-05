@@ -1,0 +1,220 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'benvida-xadrez-marinas' } },
+    { params: { slug: 'torneo-outono-2024' } },
+    { params: { slug: 'leccions-principiantes' } },
+  ];
+}
+
+const posts: Record<string, { title: string; date: string; content: string }> = {
+  'benvida-xadrez-marinas': {
+    title: 'Benvida ao Xadrez das Mariñas',
+    date: '2024-11-01',
+    content: `
+      <p>Benvido ao noso blog! Estamos encantados de compartir contigo novas, artigos e actualizacións sobre o noso club de xadrez.</p>
+      
+      <h2>Quen Somos</h2>
+      <p>O Xadrez das Mariñas é máis que un club de xadrez; é unha comunidade de persoas apaixonadas por este xogo milenario. Dende hai máis de dúas décadas, temos traballado para promover o xadrez na comarca das Mariñas e en toda Galicia.</p>
+      
+      <h2>Que Ofrecemos</h2>
+      <p>No noso club, atoparás:</p>
+      <ul>
+        <li>Clases para todos os niveis, desde iniciación ata avanzado</li>
+        <li>Torneos regulares para socios e abertos</li>
+        <li>Simultáneas con mestres</li>
+        <li>Actividades especiais para nenos e novos</li>
+        <li>Unha comunidade acolledora e inclusiva</li>
+      </ul>
+      
+      <h2>Únete a Nós</h2>
+      <p>Se estás interesado en aprender xadrez ou mellorar o teu nivel, este é o lugar perfecto para ti. Non importa se es principiante ou xogador experimentado, todos son benvidos no noso club.</p>
+      
+      <p>Para máis información, non dubides en <a href="/contact">contactar connosco</a>.</p>
+    `
+  },
+  'torneo-outono-2024': {
+    title: 'Torneo de Outono 2024',
+    date: '2024-10-28',
+    content: `
+      <p>É un pracer anunciar que organizaremos o noso torneo de outono durante o mes de novembro. Este evento está aberto a xogadores de todos os niveis!</p>
+      
+      <h2>Detalles do Torneo</h2>
+      <ul>
+        <li><strong>Data:</strong> Novembro 2024</li>
+        <li><strong>Formato:</strong> Sistema suízo a 6 roldas</li>
+        <li><strong>Ritmo:</strong> 15 minutos + 3 segundos de incremento</li>
+        <li><strong>Categorías:</strong> Aberta e Sub-16</li>
+      </ul>
+      
+      <h2>Premios</h2>
+      <p>Habrá premios para os tres primeiros clasificados de cada categoría, ademais de premios especiais para o mellor veterano, mellor xuvenil e outras categorías.</p>
+      
+      <h2>Inscricións</h2>
+      <p>As inscricións xa están abertas. Para inscribirte, visita a nosa páxina de <a href="/contact">contacto</a> ou envíanos un email.</p>
+    `
+  },
+  'leccions-principiantes': {
+    title: 'Leccións de Xadrez para Principiantes',
+    date: '2024-10-20',
+    content: `
+      <p>Estamos encantados de anunciar o inicio das nosas clases de xadrez para principiantes! Se sempre quixeches aprender a xogar ao xadrez, esta é a túa oportunidade.</p>
+      
+      <h2>Que Aprenderás</h2>
+      <p>Durante o curso, cubriremos:</p>
+      <ul>
+        <li>As regras básicas do xadrez</li>
+        <li>O movemento das pezas</li>
+        <li>Tácticas básicas</li>
+        <li>Estratexias de apertura</li>
+        <li>Finais fundamentais</li>
+      </ul>
+      
+      <h2>Detalles das Clases</h2>
+      <ul>
+        <li><strong>Duración:</strong> 8 semanas</li>
+        <li><strong>Frecuencia:</strong> 2 clases por semana</li>
+        <li><strong>Horario:</strong> Martes e Xoves, 18:00-19:30</li>
+        <li><strong>Profesor:</strong> Monitores certificados pola FEDA</li>
+      </ul>
+      
+      <p>Non necesitas ningunha experiencia previa. Todo o material está incluído no curso.</p>
+      
+      <h2>Como Inscribirte</h2>
+      <p>Para inscribirte ou obter máis información, <a href="/contact">contacta connosco</a>.</p>
+    `
+  }
+};
+
+const { slug } = Astro.params;
+const post = slug ? posts[slug] : null;
+
+if (!post) {
+  return Astro.redirect('/blog');
+}
+
+const formatDate = (dateString: string) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString('gl-ES', { 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+};
+---
+
+<BaseLayout title={`${post.title} - Xadrez das Mariñas`} description={post.title}>
+  <article class="blog-post">
+    <header class="post-header">
+      <div class="container">
+        <time datetime={post.date} class="post-date">{formatDate(post.date)}</time>
+        <h1>{post.title}</h1>
+      </div>
+    </header>
+
+    <div class="post-content">
+      <div class="container">
+        <div class="content" set:html={post.content} />
+        
+        <div class="post-footer">
+          <a href="/blog" class="back-link">← Volver ao Blog</a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-xl) 0;
+  }
+
+  .post-date {
+    display: block;
+    color: var(--color-light);
+    font-size: 0.9rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .post-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 0;
+  }
+
+  .post-content {
+    padding: var(--space-2xl) 0;
+  }
+
+  .content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .content :global(h2) {
+    margin-top: var(--space-xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .content :global(p) {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+
+  .content :global(ul) {
+    margin-bottom: var(--space-md);
+    margin-left: var(--space-lg);
+  }
+
+  .content :global(li) {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-xs);
+  }
+
+  .content :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
+  }
+
+  .content :global(a:hover) {
+    color: var(--color-secondary);
+  }
+
+  .post-footer {
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-lg);
+    border-top: 2px solid var(--color-border);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--color-accent);
+    font-weight: 600;
+    transition: color var(--transition);
+  }
+
+  .back-link:hover {
+    color: var(--color-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .post-header h1 {
+      font-size: 1.75rem;
+    }
+
+    .post-content {
+      padding: var(--space-xl) 0;
+    }
+
+    .content :global(p),
+    .content :global(li) {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,283 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Contacto - Xadrez das Mariñas" 
+  description="Ponte en contacto co Club de Ajedrez das Mariñas"
+>
+  <div class="page-header">
+    <div class="container">
+      <h1>Contacto</h1>
+      <p>Ponte en contacto connosco</p>
+    </div>
+  </div>
+
+  <section class="contact-content">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h2>Información de Contacto</h2>
+          
+          <div class="info-item">
+            <div class="info-icon">📧</div>
+            <div class="info-details">
+              <h3>Email</h3>
+              <p><a href="mailto:info@xadrezdasmarinas.org">info@xadrezdasmarinas.org</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📱</div>
+            <div class="info-details">
+              <h3>Teléfono</h3>
+              <p><a href="tel:+34981000000">+34 981 00 00 00</a></p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">📍</div>
+            <div class="info-details">
+              <h3>Localización</h3>
+              <p>Comarca das Mariñas<br/>A Coruña, Galicia</p>
+            </div>
+          </div>
+
+          <div class="info-item">
+            <div class="info-icon">🕒</div>
+            <div class="info-details">
+              <h3>Horario</h3>
+              <p>Luns a Venres: 17:00 - 21:00<br/>Sábados: 10:00 - 14:00</p>
+            </div>
+          </div>
+
+          <div class="social-links">
+            <h3>Síguenos nas Redes</h3>
+            <div class="social-icons">
+              <a href="#" target="_blank" rel="noopener" title="Facebook">
+                <span class="social-icon">📘</span>
+              </a>
+              <a href="#" target="_blank" rel="noopener" title="Twitter">
+                <span class="social-icon">🐦</span>
+              </a>
+              <a href="#" target="_blank" rel="noopener" title="Instagram">
+                <span class="social-icon">📷</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form-wrapper">
+          <h2>Envíanos unha Mensaxe</h2>
+          <form class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="name">Nome *</label>
+              <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                required 
+                placeholder="O teu nome"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                required 
+                placeholder="tucorreo@example.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Teléfono</label>
+              <input 
+                type="tel" 
+                id="phone" 
+                name="phone" 
+                placeholder="+34 600 000 000"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="subject">Asunto *</label>
+              <input 
+                type="text" 
+                id="subject" 
+                name="subject" 
+                required 
+                placeholder="Asunto da mensaxe"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="message">Mensaxe *</label>
+              <textarea 
+                id="message" 
+                name="message" 
+                rows="5" 
+                required 
+                placeholder="Escribe aquí a túa mensaxe..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn">Enviar Mensaxe</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .contact-content {
+    padding: var(--space-2xl) 0;
+  }
+
+  .contact-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .contact-info h2,
+  .contact-form-wrapper h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .info-item {
+    display: flex;
+    gap: var(--space-md);
+    margin-bottom: var(--space-lg);
+  }
+
+  .info-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+
+  .info-details h3 {
+    margin-bottom: var(--space-xs);
+    font-size: 1.25rem;
+  }
+
+  .info-details p {
+    color: var(--color-text-light);
+    margin-bottom: 0;
+  }
+
+  .info-details a {
+    color: var(--color-accent);
+  }
+
+  .social-links {
+    margin-top: var(--space-xl);
+  }
+
+  .social-links h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .social-icons {
+    display: flex;
+    gap: var(--space-md);
+  }
+
+  .social-icon {
+    font-size: 2rem;
+    transition: transform var(--transition);
+    display: inline-block;
+  }
+
+  .social-icons a:hover .social-icon {
+    transform: scale(1.2);
+  }
+
+  /* Form Styles */
+  .contact-form {
+    background: var(--color-light);
+    padding: var(--space-xl);
+    border-radius: var(--border-radius);
+  }
+
+  .form-group {
+    margin-bottom: var(--space-md);
+  }
+
+  .form-group label {
+    display: block;
+    margin-bottom: var(--space-xs);
+    font-weight: 600;
+    color: var(--color-primary);
+  }
+
+  .form-group input,
+  .form-group textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 2px solid var(--color-border);
+    border-radius: var(--border-radius);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    transition: border-color var(--transition);
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .form-group textarea {
+    resize: vertical;
+  }
+
+  .contact-form button {
+    width: 100%;
+  }
+
+  @media (max-width: 968px) {
+    .contact-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .page-header p {
+      font-size: 1rem;
+    }
+
+    .contact-content {
+      padding: var(--space-xl) 0;
+    }
+
+    .contact-form {
+      padding: var(--space-md);
+    }
+  }
+</style>
