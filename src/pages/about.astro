@@ -1,0 +1,224 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Sobre Nós - Xadrez das Mariñas" 
+  description="Coñece o Club de Ajedrez das Mariñas e a nosa historia"
+>
+  <div class="page-header">
+    <div class="container">
+      <h1>Sobre Nós</h1>
+      <p>Coñece o noso club e a nosa historia</p>
+    </div>
+  </div>
+
+  <section class="about-content">
+    <div class="container">
+      <div class="content-wrapper">
+        <div class="about-section">
+          <h2>♔ Quen Somos</h2>
+          <p>
+            O <strong>Xadrez das Mariñas</strong> é un club de ajedrez situado na comarca das Mariñas, en Galicia. 
+            Dende a nosa fundación, temos traballado incansablemente para promover o xadrez como 
+            ferramenta educativa e recreativa para persoas de todas as idades.
+          </p>
+          <p>
+            O noso club está formado por un grupo diverso de afeccionados ao xadrez, desde principiantes 
+            que acaban de descubrir este marabilloso xogo ata xogadores experimentados que compiten en 
+            torneos nacionais e internacionais.
+          </p>
+        </div>
+
+        <div class="about-section">
+          <h2>🎯 A Nosa Misión</h2>
+          <p>
+            Promover o xadrez como actividade educativa, cultural e deportiva na comarca das Mariñas 
+            e en toda Galicia. Buscamos:
+          </p>
+          <ul>
+            <li>Fomentar o desenvolvemento cognitivo e social a través do xadrez</li>
+            <li>Organizar torneos e eventos para xogadores de todos os niveis</li>
+            <li>Ofrecer clases e formación de calidade</li>
+            <li>Crear unha comunidade inclusiva e acolledora</li>
+            <li>Representar á nosa comarca en competicións rexionais e nacionais</li>
+          </ul>
+        </div>
+
+        <div class="about-section">
+          <h2>🏆 As Nosas Actividades</h2>
+          <div class="activities-grid">
+            <div class="activity-card">
+              <h3>Clases e Formación</h3>
+              <p>Ofrecemos clases para todos os niveis, desde iniciación ata perfeccionamento avanzado.</p>
+            </div>
+            <div class="activity-card">
+              <h3>Torneos</h3>
+              <p>Organizamos torneos regulares para socios e abertos á participación de xogadores externos.</p>
+            </div>
+            <div class="activity-card">
+              <h3>Simultáneas</h3>
+              <p>Sesións de simultáneas con mestres e xogadores experimentados.</p>
+            </div>
+            <div class="activity-card">
+              <h3>Actividades Xuvenís</h3>
+              <p>Programas especiais para nenos e novos, incluíndo campamentos de verán.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-section">
+          <h2>📍 Onde Estamos</h2>
+          <p>
+            O noso club sitúase na comarca das Mariñas, unha zona estratéxica no norte de Galicia. 
+            As nosas instalacións están abertas a todo o público interesado en aprender e practicar o xadrez.
+          </p>
+          <p>
+            Para máis información sobre horarios e localización, visita a nosa páxina de 
+            <a href="/contact">contacto</a>.
+          </p>
+        </div>
+
+        <div class="cta-section">
+          <h2>Únete ao Noso Club</h2>
+          <p>Se estás interesado en formar parte do Xadrez das Mariñas, non dubides en contactar connosco.</p>
+          <a href="/contact" class="btn">Contacta Connosco</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .about-content {
+    padding: var(--space-2xl) 0;
+  }
+
+  .content-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .about-section {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .about-section h2 {
+    margin-bottom: var(--space-md);
+    font-size: 2rem;
+  }
+
+  .about-section p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-md);
+  }
+
+  .about-section ul {
+    list-style-position: inside;
+    margin-left: var(--space-md);
+  }
+
+  .about-section li {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    margin-bottom: var(--space-xs);
+  }
+
+  .activities-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-md);
+  }
+
+  .activity-card {
+    background: var(--color-light);
+    padding: var(--space-md);
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--color-accent);
+  }
+
+  .activity-card h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .activity-card p {
+    font-size: 1rem;
+    margin-bottom: 0;
+  }
+
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-accent) 0%, var(--color-primary) 100%);
+    color: white;
+    padding: var(--space-xl);
+    border-radius: var(--border-radius);
+    text-align: center;
+  }
+
+  .cta-section h2 {
+    color: white;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section .btn {
+    background-color: white;
+    color: var(--color-primary);
+  }
+
+  .cta-section .btn:hover {
+    background-color: var(--color-light);
+    color: var(--color-primary);
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .page-header p {
+      font-size: 1rem;
+    }
+
+    .about-section h2 {
+      font-size: 1.5rem;
+    }
+
+    .about-section p,
+    .about-section li {
+      font-size: 1rem;
+    }
+
+    .activities-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .about-content {
+      padding: var(--space-xl) 0;
+    }
+  }
+</style>

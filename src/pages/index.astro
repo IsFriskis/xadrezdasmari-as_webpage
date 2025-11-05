@@ -1,0 +1,241 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BlogCard from '../components/BlogCard.astro';
+
+// Sample blog posts data
+const posts = [
+  {
+    title: 'Benvida ao Xadrez das Mariñas',
+    description: 'Descubre a nosa comunidade de xadrez e únete á nosa viaxe polo fascinante mundo do xadrez.',
+    date: '2024-11-01',
+    slug: 'benvida-xadrez-marinas',
+    image: '/images/chess-board.jpg'
+  },
+  {
+    title: 'Torneo de Outono 2024',
+    description: 'Anunciamos o noso torneo de outono. Todos os niveis son benvidos!',
+    date: '2024-10-28',
+    slug: 'torneo-outono-2024',
+    image: '/images/tournament.jpg'
+  },
+  {
+    title: 'Leccións de Xadrez para Principiantes',
+    description: 'Comezamos as nosas clases de xadrez para principiantes. Apúntate agora!',
+    date: '2024-10-20',
+    slug: 'leccions-principiantes',
+    image: '/images/lessons.jpg'
+  }
+];
+---
+
+<BaseLayout title="Xadrez das Mariñas - Club de Ajedrez">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>♔ Xadrez das Mariñas ♕</h1>
+      <p class="hero-subtitle">Club de Ajedrez das Mariñas</p>
+      <p class="hero-description">
+        Promovendo o xadrez en Galicia dende hai máis de 20 anos.<br/>
+        Únete á nosa comunidade e mellora o teu xogo.
+      </p>
+      <div class="hero-buttons">
+        <a href="/about" class="btn">Sobre Nós</a>
+        <a href="/contact" class="btn btn-secondary">Contacto</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Section -->
+  <section class="featured">
+    <div class="container">
+      <div class="featured-grid">
+        <div class="featured-item">
+          <div class="featured-icon">🏆</div>
+          <h3>Torneos</h3>
+          <p>Participa nos nosos torneos regulares para todos os niveis</p>
+        </div>
+        <div class="featured-item">
+          <div class="featured-icon">📚</div>
+          <h3>Clases</h3>
+          <p>Aprende con xogadores experimentados en clases personalizadas</p>
+        </div>
+        <div class="featured-item">
+          <div class="featured-icon">🤝</div>
+          <h3>Comunidade</h3>
+          <p>Únete a unha comunidade apaixonada polo xadrez</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Section -->
+  <section class="blog-section">
+    <div class="container">
+      <h2 class="section-title">Últimas Novas</h2>
+      <div class="blog-grid">
+        {posts.map(post => (
+          <BlogCard {...post} />
+        ))}
+      </div>
+      <div class="blog-cta">
+        <a href="/blog" class="btn">Ver Todas as Novas</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  /* Hero Section */
+  .hero {
+    position: relative;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-2xl) 0;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        transparent 1px,
+        transparent 40px,
+        rgba(255, 255, 255, 0.03) 41px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.03) 0px,
+        transparent 1px,
+        transparent 40px,
+        rgba(255, 255, 255, 0.03) 41px
+      );
+    opacity: 0.5;
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--space-md);
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: var(--space-md);
+    opacity: 0.95;
+  }
+
+  .hero-description {
+    font-size: 1.125rem;
+    margin-bottom: var(--space-xl);
+    line-height: 1.8;
+    opacity: 0.9;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  /* Featured Section */
+  .featured {
+    padding: var(--space-2xl) 0;
+    background-color: var(--color-light);
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .featured-item {
+    text-align: center;
+    padding: var(--space-md);
+  }
+
+  .featured-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .featured-item h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .featured-item p {
+    color: var(--color-text-light);
+  }
+
+  /* Blog Section */
+  .blog-section {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+    font-size: 2.5rem;
+  }
+
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--space-lg);
+    margin-bottom: var(--space-xl);
+  }
+
+  .blog-cta {
+    text-align: center;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.25rem;
+    }
+
+    .hero-description {
+      font-size: 1rem;
+    }
+
+    .section-title {
+      font-size: 2rem;
+    }
+
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .featured {
+      padding: var(--space-xl) 0;
+    }
+
+    .blog-section {
+      padding: var(--space-xl) 0;
+    }
+  }
+</style>
