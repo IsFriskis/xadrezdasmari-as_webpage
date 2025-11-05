@@ -1,0 +1,2 @@
+﻿- name: FTP Deploy
+  uses: SamKirkland/FTP-Deploy-Action@v4.3.6
