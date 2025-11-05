@@ -25,5 +25,5 @@ pnpm-debug.log*
 
 # Editor directories
 /.vscode/
-.vs/
+/.vs/
 /.idea/
