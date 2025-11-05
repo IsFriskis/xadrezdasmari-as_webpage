@@ -1,15 +1,15 @@
 # Astro build output
-/dist/
-/.astro/
+/xdmpage/dist/
+/xdmpage/.astro/
 
 # Node modules and dependency files
-/node_modules/
-/package-lock.json
-/yarn.lock
+/xdmpage/node_modules/
+/xdmpage/package-lock.json
+/xdmpage/yarn.lock
 
 # Environment files
-/.env
-.env.production
+/xdmpage/.env
+/xdmpage/.env.production
 
 # TypeScript cache
 *.tsbuildinfo
@@ -25,5 +25,5 @@ pnpm-debug.log*
 
 # Editor directories
 /.vscode/
-/.vs/
+.vs/
 /.idea/

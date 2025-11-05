@@ -6,27 +6,33 @@ Modern website for Xadrez das Mariñas chess club built with Astro.
 
 ```
 /
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   ├── BlogCard.astro
-│   │   ├── Footer.astro
-│   │   └── Header.astro
-│   ├── layouts/
-│   │   └── BaseLayout.astro
-│   ├── pages/
-│   │   ├── blog/
-│   │   │   └── [slug].astro
-│   │   ├── about.astro
-│   │   ├── blog.astro
-│   │   ├── contact.astro
-│   │   └── index.astro
-│   └── styles/
-│       └── global.css
-├── astro.config.mjs
-├── package.json
-└── tsconfig.json
+├── .github/
+│   └── workflows/
+│ └── main.yml
+├── xdmpage/
+│   ├── public/
+│   │   └── favicon.svg
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── BlogCard.astro
+│   │   │   ├── Footer.astro
+│   │   │   └── Header.astro
+│   │   ├── layouts/
+│   │   │   └── BaseLayout.astro
+│   │   ├── pages/
+│   │   │   ├── blog/
+│   │   │   │   └── [slug].astro
+│   │   │   ├── about.astro
+│   │   │   ├── blog.astro
+│   │   │   ├── contact.astro
+│   │   │   └── index.astro
+│   │   └── styles/
+│   │       └── global.css
+│   ├── astro.config.mjs
+│   ├── package.json
+│   └── tsconfig.json
+├── LICENSE
+└── README.md
 ```
 
 ## 🎨 Features
@@ -40,15 +46,22 @@ Modern website for Xadrez das Mariñas chess club built with Astro.
 
 ## 🧞 Commands
 
-All commands are run from the root of the project, from a terminal:
+All commands are run from the `xdmpage/` directory, from a terminal:
 
-| Command                   | Action                                           |
+| Command           | Action      |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
+| `npm install`| Installs dependencies                 |
+| `npm run dev`  | Starts local dev server at `localhost:4321`    |
+| `npm run build` | Build your production site to `./dist/`   |
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+
+**Note:** Navigate to the `xdmpage/` directory before running these commands:
+```bash
+cd xdmpage
+npm install
+npm run dev
+```
 
 ## 📄 Pages
 

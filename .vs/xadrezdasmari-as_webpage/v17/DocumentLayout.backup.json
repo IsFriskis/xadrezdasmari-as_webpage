@@ -3,16 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\.github\\workflows\\main.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:.github\\workflows\\main.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:README.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\src\\styles\\global.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\styles\\global.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:package.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\astro.config.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:astro.config.mjs||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\src\\styles\\global.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:src\\styles\\global.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,19 +47,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "main.yml",
+              "DocumentMoniker": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\.github\\workflows\\main.yml",
+              "RelativeDocumentMoniker": ".github\\workflows\\main.yml",
+              "ToolTip": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\.github\\workflows\\main.yml",
+              "RelativeToolTip": ".github\\workflows\\main.yml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-11-05T20:47:05.648Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "package.json",
+              "DocumentMoniker": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\package.json",
+              "RelativeDocumentMoniker": "package.json",
+              "ToolTip": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\package.json",
+              "RelativeToolTip": "package.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-11-05T20:16:11.977Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "README.md",
               "DocumentMoniker": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\README.md",
               "RelativeDocumentMoniker": "README.md",
               "ToolTip": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\README.md",
               "RelativeToolTip": "README.md",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAAC8AAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAADkAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
               "WhenOpened": "2025-11-05T20:04:23.179Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "global.css",
               "DocumentMoniker": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\src\\styles\\global.css",
               "RelativeDocumentMoniker": "src\\styles\\global.css",
@@ -63,21 +93,7 @@
               "RelativeToolTip": "src\\styles\\global.css",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
-              "WhenOpened": "2025-11-05T20:04:19.328Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "astro.config.mjs",
-              "DocumentMoniker": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\astro.config.mjs",
-              "RelativeDocumentMoniker": "astro.config.mjs",
-              "ToolTip": "C:\\Users\\frisk\\Documents\\GitHub\\xadrezdasmari-as_webpage\\astro.config.mjs",
-              "RelativeToolTip": "astro.config.mjs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2025-11-05T20:04:06.984Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T20:04:19.328Z"
             }
           ]
         }
