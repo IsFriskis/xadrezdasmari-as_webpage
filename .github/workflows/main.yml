@@ -12,18 +12,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-   
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '18'
       
       - name: Install dependencies
-        working-directory: ./xdmpage
         run: npm install
       
       - name: Build project
-        working-directory: ./xdmpage
         run: npm run build
       
       - name: FTP Deploy
@@ -32,4 +30,4 @@ jobs:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./xdmpage/dist/
+          local-dir: ./dist/

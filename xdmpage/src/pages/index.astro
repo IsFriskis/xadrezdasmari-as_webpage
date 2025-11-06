@@ -1,31 +1,20 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
 
-// Sample blog posts data
-const posts = [
-  {
-    title: 'Benvida ao Xadrez das Mariñas',
-    description: 'Descubre a nosa comunidade de xadrez e únete á nosa viaxe polo fascinante mundo do xadrez.',
-    date: '2024-11-01',
-    slug: 'benvida-xadrez-marinas',
-    image: '/images/chess-board.jpg'
-  },
-  {
-    title: 'Torneo de Outono 2024',
-    description: 'Anunciamos o noso torneo de outono. Todos os niveis son benvidos!',
-    date: '2024-10-28',
-    slug: 'torneo-outono-2024',
-    image: '/images/tournament.jpg'
-  },
-  {
-    title: 'Leccións de Xadrez para Principiantes',
-    description: 'Comezamos as nosas clases de xadrez para principiantes. Apúntate agora!',
-    date: '2024-10-20',
-    slug: 'leccions-principiantes',
-    image: '/images/lessons.jpg'
-  }
-];
+// Get latest 3 blog posts from content collection
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3)
+  .map(post => ({
+    title: post.data.title,
+    description: post.data.description,
+    date: post.data.date.toISOString().split('T')[0],
+    slug: post.slug,
+    image: post.data.image
+  }));
 ---
 
 <BaseLayout title="Xadrez das Mariñas - Club de Ajedrez">
