@@ -1,8 +1,12 @@
+# GitHub backend - works with any hosting provider (Vercel, Netlify, GitHub Pages, etc.)
 backend:
-  name: git-gateway
+  name: github
+  repo: IsFriskis/xadrezdasmari-as_webpage
   branch: main
+  base_url: https://api.netlify.com # For OAuth (can be changed to your own OAuth provider)
+  auth_endpoint: auth
 
-# Local backend for development
+# Local backend for development (no authentication needed)
 local_backend: true
 
 media_folder: "public/images/uploads"

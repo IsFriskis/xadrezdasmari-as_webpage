@@ -1,0 +1,5 @@
+# Netlify redirects file
+# Redirect /admin to /admin/ for Decap CMS
+/admin  /admin/  301
+
+# SPA-like redirects (optional, handled by netlify.toml)
