@@ -17,6 +17,11 @@ const posts = await response.json();
     <h1>Welcome to Xadrez das Mariñas</h1>
     <p>This is a modern website powered by PayloadCMS and Astro.</p>
     
+    <nav class="main-nav">
+      <a href="/" class="nav-link">Home</a>
+      <a href="/blog" class="nav-link">Blog</a>
+    </nav>
+    
     <section>
       <h2>Getting Started</h2>
       <ul>
@@ -42,6 +47,28 @@ const posts = await response.json();
 <style>
   main {
     padding: 2rem;
+  }
+
+  .main-nav {
+    display: flex;
+    gap: 1rem;
+    margin: 2rem 0;
+    padding: 1rem;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+  }
+
+  .nav-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+  }
+
+  .nav-link:hover {
+    background-color: #e0e0e0;
   }
 
   section {
