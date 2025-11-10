@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Configuration for PayloadCMS API
+const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'http://localhost:3000';
+
+// Example: Fetch data from PayloadCMS
+// Uncomment and modify based on your collections
+/*
+const response = await fetch(`${PAYLOAD_API_URL}/api/posts`);
+const posts = await response.json();
+*/
+---
+
+<BaseLayout title="Xadrez das Mariñas - PayloadCMS + Astro">
+  <main>
+    <h1>Welcome to Xadrez das Mariñas</h1>
+    <p>This is a modern website powered by PayloadCMS and Astro.</p>
+    
+    <section>
+      <h2>Getting Started</h2>
+      <ul>
+        <li>PayloadCMS backend is running on <code>http://localhost:3000</code></li>
+        <li>Astro frontend is running on <code>http://localhost:4321</code></li>
+        <li>Configure your PayloadCMS collections in <code>../src/collections</code></li>
+        <li>Fetch data from PayloadCMS API and display it here</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Next Steps</h2>
+      <ol>
+        <li>Start PayloadCMS backend: <code>cd .. && npm run dev</code></li>
+        <li>Create your first admin user at <a href="http://localhost:3000/admin">http://localhost:3000/admin</a></li>
+        <li>Define collections in PayloadCMS</li>
+        <li>Fetch and display data in this Astro frontend</li>
+      </ol>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding: 2rem;
+  }
+
+  section {
+    margin: 2rem 0;
+  }
+
+  h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+  }
+
+  ul, ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
