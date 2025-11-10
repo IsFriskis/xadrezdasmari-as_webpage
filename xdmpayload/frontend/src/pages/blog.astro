@@ -1,0 +1,178 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+// Configuration for PayloadCMS API
+const PAYLOAD_API_URL = import.meta.env.PAYLOAD_API_URL || 'http://localhost:3000';
+
+// Fetch posts from PayloadCMS
+let posts = [];
+let error = null;
+
+try {
+  const response = await fetch(`${PAYLOAD_API_URL}/api/posts?where[status][equals]=published&sort=-publishedDate`);
+  if (response.ok) {
+    const data = await response.json();
+    posts = data.docs || [];
+  } else {
+    error = `Failed to fetch posts: ${response.statusText}`;
+  }
+} catch (e) {
+  error = `Error connecting to PayloadCMS: ${e.message}`;
+  console.error('Error fetching posts:', e);
+}
+---
+
+<BaseLayout title="Blog - Xadrez das Mariñas" description="Latest news and updates from Xadrez das Mariñas chess club">
+  <main>
+    <h1>Blog</h1>
+    <p>Latest news and updates from Xadrez das Mariñas chess club</p>
+
+    {error && (
+      <div class="error">
+        <p><strong>⚠️ {error}</strong></p>
+        <p>Make sure PayloadCMS is running at {PAYLOAD_API_URL}</p>
+        <p>Start it with: <code>cd .. && npm run dev</code></p>
+      </div>
+    )}
+
+    {posts.length === 0 && !error && (
+      <div class="info">
+        <p>No published posts yet.</p>
+        <p>Create your first post in the <a href={`${PAYLOAD_API_URL}/admin`}>PayloadCMS admin panel</a>.</p>
+      </div>
+    )}
+
+    {posts.length > 0 && (
+      <div class="posts-grid">
+        {posts.map((post: any) => (
+          <article class="post-card">
+            {post.featuredImage && (
+              <div class="post-image">
+                <img 
+                  src={`${PAYLOAD_API_URL}${post.featuredImage.url}`} 
+                  alt={post.featuredImage.alt || post.title}
+                />
+              </div>
+            )}
+            <div class="post-content">
+              <h2>{post.title}</h2>
+              <div class="post-meta">
+                <span class="author">{post.author}</span>
+                <span class="date">
+                  {new Date(post.publishedDate).toLocaleDateString('gl-ES', {
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                  })}
+                </span>
+              </div>
+              {post.excerpt && (
+                <p class="excerpt">{post.excerpt}</p>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    )}
+  </main>
+</BaseLayout>
+
+<style>
+  main {
+    padding: 2rem;
+  }
+
+  h1 {
+    margin-bottom: 0.5rem;
+  }
+
+  .error {
+    background-color: #fee;
+    border: 1px solid #fcc;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+  }
+
+  .info {
+    background-color: #e7f3ff;
+    border: 1px solid #b3d9ff;
+    padding: 1rem;
+    border-radius: 4px;
+    margin: 2rem 0;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .post-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .post-content {
+    padding: 1.5rem;
+  }
+
+  .post-content h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.5rem;
+    color: #2c3e50;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: #666;
+  }
+
+  .post-meta .author {
+    font-weight: 600;
+  }
+
+  .excerpt {
+    color: #555;
+    line-height: 1.6;
+  }
+
+  code {
+    background-color: #f4f4f4;
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+  }
+
+  a {
+    color: #0066cc;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+</style>
