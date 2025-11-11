@@ -33,6 +33,7 @@ Modern website for Xadrez das Mariñas chess club built with Astro.
 
 - **Modern Design**: Clean, responsive design with chess-themed branding
 - **Blog System**: Dynamic blog with multiple posts and individual post pages
+- **Prismic CMS**: Optional content management through Prismic CMS with automatic fallback to local content
 - **Multilingual**: Content in Galician language
 - **SEO Optimized**: Proper meta tags and semantic HTML
 - **Mobile Responsive**: Works perfectly on all device sizes
@@ -61,8 +62,13 @@ All commands are run from the root of the project, from a terminal:
 ## 🎯 Technologies
 
 - [Astro](https://astro.build/) - Static site generator
+- [Prismic](https://prismic.io/) - Headless CMS for content management (optional)
 - TypeScript - Type safety
 - CSS - Modern styling with CSS variables
+
+## 📚 Documentation
+
+- [PRISMIC_SETUP.md](xdmpage/PRISMIC_SETUP.md) - Complete guide for setting up Prismic CMS integration
 
 ## 📝 License
 

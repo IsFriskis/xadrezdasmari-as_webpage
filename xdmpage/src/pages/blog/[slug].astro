@@ -1,48 +1,99 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import { createClient } from '../../lib/prismicio';
+import * as prismicH from '@prismicio/helpers';
+import type { CollectionEntry } from 'astro:content';
 
-export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-  params: { slug: entry.slug },
-    props: { entry },
-  }));
+interface PrismicPath {
+  params: { slug: string };
+  props: { post: any; source: 'prismic' };
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
+interface LocalPath {
+  params: { slug: string };
+  props: { entry: CollectionEntry<'blog'>; source: 'local' };
+}
 
-const formatDate = (date: Date) => {
-  return date.toLocaleDateString('gl-ES', { 
+export async function getStaticPaths() {
+  let paths: PrismicPath[] = [];
+  
+  try {
+    // Try to get posts from Prismic
+    const client = createClient();
+    const prismicPosts = await client.getAllByType('blog_post');
+    
+    paths = prismicPosts.map(post => ({
+      params: { slug: post.uid || '' },
+      props: { post, source: 'prismic' as const },
+    }));
+  } catch (error) {
+    console.warn('Prismic not configured, using local content');
+  }
+  
+  // Always include local content as fallback
+  const blogEntries = await getCollection('blog');
+  const localPaths: LocalPath[] = blogEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry, source: 'local' as const },
+  }));
+  
+  // If Prismic is configured, use only Prismic posts, otherwise use local
+  return paths.length > 0 ? paths : localPaths;
+}
+
+const { entry, post, source } = Astro.props;
+
+const formatDate = (date: Date | string) => {
+  const dateObj = typeof date === 'string' ? new Date(date) : date;
+  return dateObj.toLocaleDateString('gl-ES', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
   });
 };
+
+let title, description, date, content;
+
+if (source === 'prismic') {
+  title = post.data.title;
+  description = post.data.description;
+  date = post.first_publication_date;
+  content = prismicH.asHTML(post.data.content);
+} else {
+  title = entry.data.title;
+  description = entry.data.description;
+  date = entry.data.date;
+  const { Content } = await entry.render();
+  content = Content;
+}
 ---
 
-<BaseLayout title={`${entry.data.title} - Xadrez das Mariñas`} description={entry.data.description}>
+<BaseLayout title={`${title} - Xadrez das Mariñas`} description={description}>
   <article class="blog-post">
     <header class="post-header">
       <div class="container">
-        <time datetime={entry.data.date.toISOString()} class="post-date">
-          {formatDate(entry.data.date)}
+        <time datetime={typeof date === 'string' ? date : date.toISOString()} class="post-date">
+          {formatDate(date)}
         </time>
- <h1>{entry.data.title}</h1>
+        <h1>{title}</h1>
       </div>
     </header>
 
     <div class="post-content">
       <div class="container">
         <div class="content">
-          <Content />
+          {source === 'prismic' ? (
+            <div set:html={content} />
+          ) : (
+            <content />
+          )}
         </div>
         
         <div class="post-footer">
           <a href="/blog" class="back-link">← Volver ao Blog</a>
-     </div>
-   </div>
+        </div>
+      </div>
     </div>
   </article>
 </BaseLayout>
