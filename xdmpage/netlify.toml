@@ -4,7 +4,15 @@
   command = "npm run build"
   publish = "dist"
 
-# Redirect rules for SPA-like behavior
+# Redirect rules - IMPORTANT: Order matters! More specific rules first.
+
+# Don't redirect admin panel
+[[redirects]]
+  from = "/admin/*"
+  to = "/admin/:splat"
+  status = 200
+
+# SPA-like behavior for other routes
 [[redirects]]
   from = "/*"
   to = "/index.html"

@@ -2,4 +2,5 @@
 # Redirect /admin to /admin/ for Decap CMS
 /admin  /admin/  301
 
-# SPA-like redirects (optional, handled by netlify.toml)
+# Don't redirect admin files (let them be served normally)
+/admin/*  /admin/:splat  200
