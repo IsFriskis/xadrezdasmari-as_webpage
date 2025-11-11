@@ -6,13 +6,13 @@ backend:
 # Local backend for development (no authentication needed)
 local_backend: true
 
-media_folder: "public/images/uploads"
+media_folder: "xdmpage/public/images/uploads"
 public_folder: "/images/uploads"
 
 collections:
   - name: "blog"
     label: "Blog Posts"
-    folder: "src/content/blog"
+    folder: "xdmpage/src/content/blog"
     create: true
     slug: "{{slug}}"
     fields:
