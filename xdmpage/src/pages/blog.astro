@@ -1,49 +1,48 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import BlogCard from '../components/BlogCard.astro';
+import { createClient } from '../lib/prismicio';
+import { getCollection } from 'astro:content';
 
-// Sample blog posts data
-const posts = [
-  {
-    title: 'Benvida ao Xadrez das Mariñas',
-    description: 'Descubre a nosa comunidade de xadrez e únete á nosa viaxe polo fascinante mundo do xadrez. O noso club ofrece actividades para todos os niveis, desde principiantes ata xogadores avanzados.',
-    date: '2024-11-01',
-    slug: 'benvida-xadrez-marinas',
-    image: '/images/chess-board.jpg'
-  },
-  {
-    title: 'Torneo de Outono 2024',
-    description: 'Anunciamos o noso torneo de outono. Todos os niveis son benvidos! O torneo terá lugar durante o mes de novembro e contará con premios para os gañadores.',
-    date: '2024-10-28',
-    slug: 'torneo-outono-2024',
-    image: '/images/tournament.jpg'
-  },
-  {
-    title: 'Leccións de Xadrez para Principiantes',
-    description: 'Comezamos as nosas clases de xadrez para principiantes. Apúntate agora! As clases son impartidas por monitores certificados e teñen lugar todas as semanas.',
-    date: '2024-10-20',
-    slug: 'leccions-principiantes',
-    image: '/images/lessons.jpg'
-  },
-  {
-    title: 'Historia do Xadrez en Galicia',
-    description: 'Un percorrido pola rica historia do xadrez na nosa terra, desde as súas orixes ata os nosos días. Descubre os grandes mestres galegos.',
-    date: '2024-10-15',
-    slug: 'historia-xadrez-galicia',
-  },
-  {
-    title: 'Estratexias para Mellorar o teu Xogo',
-    description: 'Consellos e trucos dos nosos mestres para mellorar a túa técnica e estratexia no xadrez. Aprende a pensar como un mestre.',
-    date: '2024-10-10',
-    slug: 'estratexias-mellorar-xogo',
-  },
-  {
-    title: 'O Xadrez e o Desenvolvemento Cognitivo',
-    description: 'Descubre como o xadrez pode axudar a desenvolver habilidades cognitivas en persoas de todas as idades, especialmente en nenos.',
-    date: '2024-10-05',
-    slug: 'xadrez-desenvolvemento-cognitivo',
-  }
-];
+// Define the post type
+interface Post {
+  title: string;
+  description: string;
+  date: string;
+  slug: string;
+  image?: string;
+}
+
+// Fetch posts from Prismic
+let posts: Post[] = [];
+
+try {
+  const client = createClient();
+  const prismicPosts = await client.getAllByType('blog_post', {
+    orderings: [
+      { field: 'document.first_publication_date', direction: 'desc' }
+    ]
+  });
+  
+  posts = prismicPosts.map((post) => ({
+    title: post.data.title as string,
+    description: post.data.description as string,
+    date: post.first_publication_date,
+    slug: post.uid || '',
+    image: post.data.featured_image?.url as string | undefined
+  }));
+} catch (error) {
+  // Fallback to local content collection if Prismic is not configured
+  console.warn('Prismic not configured, using local content:', error);
+  const blogEntries = await getCollection('blog');
+  posts = blogEntries.map((entry) => ({
+    title: entry.data.title,
+    description: entry.data.description,
+    date: entry.data.date.toISOString().split('T')[0],
+    slug: entry.slug,
+    image: entry.data.image
+  })).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+}
 ---
 
 <BaseLayout 

@@ -1,0 +1,5 @@
+{
+  "repositoryName": "xadrezdasmarinas",
+  "libraries": ["./slices"],
+  "localSliceSimulatorURL": "http://localhost:4321/slice-simulator"
+}
