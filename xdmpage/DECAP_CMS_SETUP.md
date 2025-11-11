@@ -33,38 +33,41 @@ The Decap CMS admin interface is now configured at `/admin`.
 
 ### Production Deployment
 
-Decap CMS works with **any hosting provider**:
-- ✅ **Vercel** (recommended)
-- ✅ **Netlify**
-- ✅ **GitHub Pages**
-- ✅ **Cloudflare Pages**
-- ✅ **Any static host**
+Decap CMS is configured to work with **Netlify Identity + Git Gateway**.
 
-#### Authentication Options:
+#### Setup Steps for Netlify:
 
-**Option 1: GitHub OAuth (Recommended)**
-- Uses GitHub authentication
-- Free for public repos
-- Works with any hosting provider
-- Setup: Create GitHub OAuth app in your repo settings
+1. **Enable Netlify Identity:**
+   - Go to your Netlify site dashboard
+   - Navigate to **Site settings** → **Identity**
+   - Click **Enable Identity**
 
-**Option 2: Netlify Identity (if using Netlify)**
-- Enable in Netlify dashboard
-- Good for non-technical users
+2. **Enable Git Gateway:**
+   - In the Identity section, go to **Services** → **Git Gateway**
+   - Click **Enable Git Gateway**
+   - This allows Decap CMS to commit directly to your GitHub repo
 
-**Option 3: Git Gateway (Netlify only)**
-- Easiest for Netlify users
-- Built-in authentication
+3. **Invite yourself as a user:**
+   - Go to **Identity** tab in your Netlify dashboard
+   - Click **Invite users**
+   - Enter your email
+   - Check your email and accept the invitation
+   - Set your password
 
-**Option 4: External OAuth Providers**
-- GitLab, Bitbucket, etc.
-- Requires OAuth setup
+4. **Access the admin panel:**
+   - Visit `https://yoursite.netlify.app/admin/`
+   - Click "Login with Netlify Identity"
+   - Use your email and password
+
+**Alternative: Use GitHub OAuth (Any hosting provider)**
+- Create a GitHub OAuth app
+- Use an OAuth provider like [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider)
+- Update config.yml to use GitHub backend with your OAuth endpoint
 
 ## 🔧 Current Configuration
 
 ### Backend
-- **Type:** GitHub
-- **Repository:** IsFriskis/xadrezdasmari-as_webpage
+- **Type:** Git Gateway (Netlify Identity)
 - **Branch:** main
 - **Local backend:** Enabled for development
 
