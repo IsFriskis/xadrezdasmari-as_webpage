@@ -1,0 +1,354 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Torneos - Xadrez das Mariñas" 
+  description="Descubre os torneos e competicións do Club de Ajedrez das Mariñas"
+>
+  <div class="page-header">
+    <div class="container">
+      <h1>🏆 Torneos</h1>
+      <p>Participa nas nosas competicións</p>
+    </div>
+  </div>
+
+  <section class="torneos-content">
+    <div class="container">
+      <!-- Próximos Torneos -->
+      <div class="section-block">
+        <h2>Próximos Torneos</h2>
+        <div class="tournaments-grid">
+          <div class="tournament-card">
+            <div class="tournament-badge">Próximamente</div>
+            <h3>Torneo de Nadal 2025</h3>
+            <div class="tournament-info">
+              <p><strong>📅 Data:</strong> Decembro 2025</p>
+              <p><strong>📍 Lugar:</strong> Sede do club</p>
+              <p><strong>👥 Categorías:</strong> Todas as idades</p>
+              <p><strong>🏅 Premios:</strong> Trofeos e diplomas</p>
+            </div>
+            <p class="tournament-description">
+              Únete ao noso torneo anual de Nadal. Partidas emocionantes e un gran ambiente familiar.
+            </p>
+            <a href="/contact" class="btn">Inscríbete</a>
+          </div>
+
+          <div class="tournament-card">
+            <div class="tournament-badge upcoming">Aberto</div>
+            <h3>Liga Social XDM</h3>
+            <div class="tournament-info">
+              <p><strong>📅 Data:</strong> Todo o ano</p>
+              <p><strong>📍 Lugar:</strong> Online e presencial</p>
+              <p><strong>👥 Categorías:</strong> Socios do club</p>
+              <p><strong>🏅 Premios:</strong> Clasificación anual</p>
+            </div>
+            <p class="tournament-description">
+              Participa na nosa liga interna. Xoga cando queiras e acumula puntos ao longo do ano.
+            </p>
+            <a href="/contact" class="btn">Máis información</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Torneos Pasados -->
+      <div class="section-block">
+        <h2>Torneos Recentes</h2>
+        <div class="past-tournaments">
+          <div class="past-tournament-item">
+            <div class="past-tournament-date">
+              <span class="month">Nov</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="past-tournament-details">
+              <h3>Torneo de Outono 2024</h3>
+              <p>Un gran éxito con máis de 40 participantes de toda Galicia.</p>
+            </div>
+          </div>
+
+          <div class="past-tournament-item">
+            <div class="past-tournament-date">
+              <span class="month">Set</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="past-tournament-details">
+              <h3>Campionato Rápido das Mariñas</h3>
+              <p>Partidas intensas en formato blitz e rápido.</p>
+            </div>
+          </div>
+
+          <div class="past-tournament-item">
+            <div class="past-tournament-date">
+              <span class="month">Xuñ</span>
+              <span class="year">2024</span>
+            </div>
+            <div class="past-tournament-details">
+              <h3>Simultáneas con GM</h3>
+              <p>Evento especial con Gran Mestre invitado.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Información General -->
+      <div class="section-block info-section">
+        <h2>Información sobre os Torneos</h2>
+        <div class="info-grid">
+          <div class="info-card">
+            <div class="info-icon">📋</div>
+            <h3>Inscrición</h3>
+            <p>Inscricións abertas con antelación. Contacta connosco para reservar a túa praza.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">⏱️</div>
+            <h3>Formato</h3>
+            <p>Organizamos torneos en diversos formatos: clásico, rápido, blitz e Fischer.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🎯</div>
+            <h3>Niveis</h3>
+            <p>Torneos para todos os niveis, desde principiantes ata xogadores avanzados.</p>
+          </div>
+          <div class="info-card">
+            <div class="info-icon">🏆</div>
+            <h3>Premios</h3>
+            <p>Trofeos, medallas e diplomas para os gañadores de cada categoría.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Call to Action -->
+      <div class="cta-section">
+        <h2>Queres participar?</h2>
+        <p>Ponte en contacto connosco para máis información sobre os nosos torneos</p>
+        <a href="/contact" class="btn btn-large">Contactar</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%);
+    color: white;
+    padding: var(--space-xl) 0;
+    text-align: center;
+  }
+
+  .page-header h1 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: var(--space-sm);
+  }
+
+  .page-header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+  }
+
+  .torneos-content {
+    padding: var(--space-2xl) 0;
+  }
+
+  .section-block {
+    margin-bottom: var(--space-2xl);
+  }
+
+  .section-block h2 {
+    margin-bottom: var(--space-xl);
+    font-size: 2.25rem;
+    text-align: center;
+  }
+
+  /* Tournament Cards */
+  .tournaments-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .tournament-card {
+    background: white;
+    border-radius: 16px;
+    padding: var(--space-xl);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    position: relative;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+  }
+
+  .tournament-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border-color: var(--color-primary);
+  }
+
+  .tournament-badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: var(--color-secondary);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  .tournament-badge.upcoming {
+    background: var(--color-accent);
+  }
+
+  .tournament-card h3 {
+    margin-bottom: var(--space-md);
+    font-size: 1.75rem;
+    color: var(--color-primary);
+  }
+
+  .tournament-info {
+    background: var(--color-light);
+    padding: var(--space-md);
+    border-radius: 8px;
+    margin-bottom: var(--space-md);
+  }
+
+  .tournament-info p {
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+  }
+
+  .tournament-description {
+    color: var(--color-text-light);
+    line-height: 1.6;
+    margin-bottom: var(--space-lg);
+  }
+
+  /* Past Tournaments */
+  .past-tournaments {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .past-tournament-item {
+    display: flex;
+    gap: var(--space-lg);
+    padding: var(--space-lg);
+    background: white;
+    border-radius: 12px;
+    margin-bottom: var(--space-md);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .past-tournament-item:hover {
+    transform: translateX(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
+
+  .past-tournament-date {
+    background: var(--color-primary);
+    color: white;
+    padding: var(--space-md);
+    border-radius: 8px;
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .past-tournament-date .month {
+    display: block;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .past-tournament-date .year {
+    display: block;
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .past-tournament-details h3 {
+    margin-bottom: var(--space-xs);
+    color: var(--color-primary);
+  }
+
+  .past-tournament-details p {
+    color: var(--color-text-light);
+  }
+
+  /* Info Cards */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .info-card {
+    text-align: center;
+    padding: var(--space-xl);
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .info-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-md);
+  }
+
+  .info-card h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--color-primary);
+  }
+
+  .info-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    text-align: center;
+    padding: var(--space-2xl);
+    background: linear-gradient(135deg, var(--color-light) 0%, white 100%);
+    border-radius: 16px;
+    margin-top: var(--space-2xl);
+  }
+
+  .cta-section h2 {
+    margin-bottom: var(--space-md);
+  }
+
+  .cta-section p {
+    font-size: 1.125rem;
+    color: var(--color-text-light);
+    margin-bottom: var(--space-lg);
+  }
+
+  .btn-large {
+    padding: 1rem 2.5rem;
+    font-size: 1.125rem;
+  }
+
+  @media (max-width: 768px) {
+    .page-header h1 {
+      font-size: 2rem;
+    }
+
+    .tournaments-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .past-tournament-item {
+      flex-direction: column;
+      gap: var(--space-md);
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-section {
+      padding: var(--space-xl);
+    }
+  }
+</style>

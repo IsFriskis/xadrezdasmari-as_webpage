@@ -31,9 +31,12 @@ const currentYear = new Date().getFullYear();
         <h4>Ligazóns</h4>
         <ul>
           <li><a href="/">Inicio</a></li>
+          <li><a href="/torneos">Torneos</a></li>
+          <li><a href="/clases">Clases</a></li>
           <li><a href="/blog">Blog</a></li>
           <li><a href="/about">Sobre Nós</a></li>
           <li><a href="/contact">Contacto</a></li>
+          <li><a href="/admin" class="admin-link">⚙️ Administración</a></li>
         </ul>
       </div>
       
@@ -145,6 +148,15 @@ const currentYear = new Date().getFullYear();
 
   .footer-section a:hover {
     color: white;
+  }
+
+  .admin-link {
+    opacity: 0.7;
+    font-size: 0.9rem;
+  }
+
+  .admin-link:hover {
+    opacity: 1;
   }
 
   .footer-bottom {
