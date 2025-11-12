@@ -12,12 +12,40 @@ public_folder: "/images/uploads"
 collections:
   - name: "blog"
     label: "Blog Posts"
+    label_singular: "Blog Post"
+    description: "Crea e xestiona as entradas do blog do club de xadrez. Fai clic en 'New Blog Posts' para engadir unha nova entrada."
     folder: "xdmpage/src/content/blog"
     create: true
     slug: "{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "text" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Image", name: "image", widget: "image", required: false }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - { 
+          label: "Título", 
+          name: "title", 
+          widget: "string",
+          hint: "O título principal da entrada do blog (ex: 'Torneo de Primavera 2025')"
+        }
+      - { 
+          label: "Descrición", 
+          name: "description", 
+          widget: "text",
+          hint: "Breve resumo da entrada que aparecerá nas tarxetas do blog (2-3 frases)"
+        }
+      - { 
+          label: "Data de Publicación", 
+          name: "date", 
+          widget: "datetime",
+          hint: "Selecciona a data e hora de publicación"
+        }
+      - { 
+          label: "Imaxe", 
+          name: "image", 
+          widget: "image", 
+          required: false,
+          hint: "Imaxe destacada para a entrada (opcional). Fai clic en 'Choose different image' para subir unha imaxe"
+        }
+      - { 
+          label: "Contido", 
+          name: "body", 
+          widget: "markdown",
+          hint: "Escribe o contido completo da entrada usando Markdown. Podes usar formato rico e engadir imaxes"
+        }

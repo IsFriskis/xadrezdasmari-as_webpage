@@ -4,6 +4,22 @@ const currentYear = new Date().getFullYear();
 
 <footer>
   <div class="container">
+    <!-- Sponsors/Partners Section -->
+    <div class="footer-logos">
+      <h4>Colaboradores</h4>
+      <div class="logos-grid">
+        <a href="#" target="_blank" rel="noopener" class="logo-link">
+          <img src="/logo deputacion da coruña.png" alt="Deputación da Coruña" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="logo-link">
+          <img src="/logo fegaxa.jfif" alt="FEGAXA" />
+        </a>
+        <a href="#" target="_blank" rel="noopener" class="logo-link">
+          <img src="/logo xogade.jfif" alt="Xogade" />
+        </a>
+      </div>
+    </div>
+
     <div class="footer-content">
       <div class="footer-section">
         <h3>Xadrez das Mariñas</h3>
@@ -43,6 +59,52 @@ const currentYear = new Date().getFullYear();
     color: white;
     padding: var(--space-xl) 0 var(--space-md);
     margin-top: var(--space-2xl);
+  }
+
+  /* Logos Section */
+  .footer-logos {
+    text-align: center;
+    padding-bottom: var(--space-xl);
+    margin-bottom: var(--space-xl);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .footer-logos h4 {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: var(--space-lg);
+    font-weight: 600;
+  }
+
+  .logos-grid {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--space-xl);
+    flex-wrap: wrap;
+  }
+
+  .logo-link {
+    display: block;
+    background: white;
+    padding: 0.25rem;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 280px;
+  }
+
+  .logo-link:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .logo-link img {
+    width: 100%;
+    height: auto;
+    max-height: 120px;
+    object-fit: contain;
+    display: block;
   }
 
   .footer-content {
@@ -98,6 +160,24 @@ const currentYear = new Date().getFullYear();
   @media (max-width: 768px) {
     footer {
       padding: var(--space-lg) 0 var(--space-md);
+    }
+
+    .footer-logos {
+      padding-bottom: var(--space-lg);
+      margin-bottom: var(--space-lg);
+    }
+
+    .logos-grid {
+      gap: var(--space-md);
+    }
+
+    .logo-link {
+      max-width: 220px;
+      padding: 0.2rem;
+    }
+
+    .logo-link img {
+      max-height: 90px;
     }
 
     .footer-content {

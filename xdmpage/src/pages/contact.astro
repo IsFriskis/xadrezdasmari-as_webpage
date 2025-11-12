@@ -23,15 +23,16 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             <div class="info-icon">📧</div>
             <div class="info-details">
               <h3>Email</h3>
-              <p><a href="mailto:info@xadrezdasmarinas.org">info@xadrezdasmarinas.org</a></p>
+              <p><a href="mailto:xdm@xadrecista.eu">xdm@xadrecista.eu</a></p>
             </div>
           </div>
 
           <div class="info-item">
             <div class="info-icon">📱</div>
             <div class="info-details">
-              <h3>Teléfono</h3>
-              <p><a href="tel:+34981000000">+34 981 00 00 00</a></p>
+              <h3>Teléfono / WhatsApp</h3>
+              <p><a href="tel:+34652696531">+34 652 696 531</a></p>
+              <p><a href="https://wa.me/34652696531" target="_blank" rel="noopener">💬 Enviar WhatsApp</a></p>
             </div>
           </div>
 
@@ -187,10 +188,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   .info-details p {
     color: var(--color-text-light);
     margin-bottom: 0;
+    line-height: 1.6;
+  }
+
+  .info-details p + p {
+    margin-top: var(--space-xs);
   }
 
   .info-details a {
     color: var(--color-accent);
+    transition: color var(--transition);
+  }
+
+  .info-details a:hover {
+    color: var(--color-hover);
   }
 
   .social-links {

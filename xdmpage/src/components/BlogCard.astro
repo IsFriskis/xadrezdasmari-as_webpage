@@ -19,13 +19,13 @@ const formatDate = (dateString: string) => {
 };
 
 // Use a placeholder if no valid image
-const defaultImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%233498db' width='400' height='200'/%3E%3Ctext fill='%23ffffff' font-family='sans-serif' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E♔♕♖♗♘♙%3C/text%3E%3C/svg%3E";
+const defaultImage = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='200'%3E%3Crect fill='%231e6f3e' width='400' height='200'/%3E%3Ctext fill='%23ffffff' font-family='sans-serif' font-size='24' x='50%25' y='50%25' text-anchor='middle' dominant-baseline='middle'%3E♔♕♖♗♘♙%3C/text%3E%3C/svg%3E";
 const imageUrl = image && (image.startsWith('http') || image.startsWith('/')) ? image : defaultImage;
 ---
 
 <article class="blog-card card">
   <div class="card-image">
-    <img src={imageUrl} alt={title} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'%3E%3Crect fill=\'%233498db\' width=\'400\' height=\'200\'/%3E%3Ctext fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'24\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E♔♕♖♗♘♙%3C/text%3E%3C/svg%3E'" />
+    <img src={imageUrl} alt={title} onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'400\' height=\'200\'%3E%3Crect fill=\'%231e6f3e\' width=\'400\' height=\'200\'/%3E%3Ctext fill=\'%23ffffff\' font-family=\'sans-serif\' font-size=\'24\' x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dominant-baseline=\'middle\'%3E♔♕♖♗♘♙%3C/text%3E%3C/svg%3E'" />
   </div>
   <div class="card-content">
     <time datetime={date} class="card-date">{formatDate(date)}</time>

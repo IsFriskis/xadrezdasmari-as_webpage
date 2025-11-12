@@ -64,7 +64,51 @@ Decap CMS is configured to work with **Netlify Identity + Git Gateway**.
 - Use an OAuth provider like [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider)
 - Update config.yml to use GitHub backend with your OAuth endpoint
 
-## 🔧 Current Configuration
+## � How to Create Blog Posts
+
+### Using Decap CMS (Production):
+
+1. **Access the admin panel:**
+   - Go to `https://xdmwebpage.netlify.app/admin/`
+   - Login with your Netlify Identity credentials
+
+2. **Create a new post:**
+   - Click on **"Blog Posts"** in the Collections menu
+   - Click the **"New Blog Posts"** button (top right)
+   
+3. **Fill in the fields:**
+   - **Título**: Main title of your blog post
+   - **Descrición**: Short summary (2-3 sentences) that appears on blog cards
+   - **Data de Publicación**: Select the publish date and time
+   - **Imaxe** (optional): Click "Choose different image" to upload a featured image
+   - **Contido**: Write your full blog post content using Markdown
+   
+4. **Preview and publish:**
+   - Use the preview button to see how it looks
+   - Click **"Publish"** dropdown → **"Publish now"** when ready
+   - Your post will be committed to GitHub and deployed automatically!
+
+### Using Local Development:
+
+1. Start both servers:
+   ```powershell
+   # Terminal 1
+   npm run dev
+   
+   # Terminal 2
+   npx decap-server
+   ```
+
+2. Access `http://localhost:4321/admin/`
+3. No login required - edit directly!
+
+### Tips:
+- Images should be JPG, PNG, or WebP format
+- Keep descriptions concise (150-200 characters)
+- Use Markdown for formatting: `**bold**`, `*italic*`, `# Heading`
+- Posts appear automatically on the blog page sorted by date
+
+## �🔧 Current Configuration
 
 ### Backend
 - **Type:** Git Gateway (Netlify Identity)

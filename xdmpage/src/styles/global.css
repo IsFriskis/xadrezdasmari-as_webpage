@@ -1,16 +1,16 @@
 /* Global Styles for Xadrez das Mariñas */
 
 :root {
-  /* Color Palette - Modern chess-inspired theme */
-  --color-primary: #2c3e50;
-  --color-secondary: #e74c3c;
-  --color-accent: #3498db;
-  --color-light: #ecf0f1;
+  /* Color Palette - Dark Professional Green theme */
+  --color-primary: #1e6f3e; /* Dark forest green */
+  --color-secondary: #155a2e; /* Deeper green */
+  --color-accent: #2d8f52; /* Medium green accent */
+  --color-light: #f8f9fa; /* Neutral light gray */
   --color-dark: #1a1a1a;
-  --color-text: #333;
-  --color-text-light: #666;
-  --color-border: #ddd;
-  --color-hover: #34495e;
+  --color-text: #2c3e50; /* Darker text for better readability */
+  --color-text-light: #6c757d; /* Medium gray for secondary text */
+  --color-border: #dee2e6; /* Neutral border */
+  --color-hover: #16803d; /* Vibrant hover green */
   
   /* Spacing */
   --space-xs: 0.5rem;
