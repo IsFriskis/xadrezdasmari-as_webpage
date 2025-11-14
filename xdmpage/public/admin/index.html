@@ -142,6 +142,37 @@
       border-color: var(--color-hover) !important;
     }
 
+    /* New Blog Post button - light green background */
+    button[class*="Button"]:not([class*="ViewControls"]):not([class*="IconButton"]) {
+      background-color: var(--color-light) !important;
+      border: 1px solid var(--color-accent) !important;
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+    }
+
+    button[class*="Button"]:not([class*="ViewControls"]):not([class*="IconButton"]):hover {
+      background-color: var(--color-accent) !important;
+      color: white !important;
+    }
+
+    /* Remove border from post title cards */
+    [class*="CollectionCard"],
+    [class*="ListCard"],
+    [class*="CardContainer"] {
+      background: white !important;
+      border: none !important;
+      border-radius: 8px !important;
+      margin-bottom: 12px !important;
+      transition: all 0.2s ease !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+    }
+
+    [class*="CollectionCard"]:hover,
+    [class*="ListCard"]:hover {
+      box-shadow: 0 2px 8px rgba(30, 111, 62, 0.12) !important;
+      transform: translateY(-1px) !important;
+    }
+
     /* Active tab indicator */
     [class*="Tab-active"],
     [class*="TabButton-active"] {
