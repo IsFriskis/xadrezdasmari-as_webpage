@@ -8,7 +8,7 @@
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
   <style>
-    /* Custom Decap CMS styling - minimal, focused on branding */
+    /* Custom Decap CMS styling - consistent green branding */
     :root {
       --color-primary: #1e6f3e;
       --color-hover: #16803d;
@@ -16,80 +16,50 @@
       --color-light: #e8f5ea;
     }
 
-    /* Header bar - green gradient */
+    /* Header bar - solid green */
     [class*="AppHeader"],
     [class*="AppHeaderContent"] {
-      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%) !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+      background: var(--color-primary) !important;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
     }
 
     /* Header text and buttons */
     [class*="AppHeader"] h1,
     [class*="AppHeader"] span,
-    [class*="AppHeaderButton"] {
+    [class*="AppHeaderButton"],
+    [class*="AppHeader"] button {
       color: white !important;
     }
 
-    /* Collections sidebar - green background */
+    /* Collections sidebar - matching green */
     [class*="SidebarContainer"] {
       background-color: var(--color-primary) !important;
       border-right: none !important;
     }
 
-    /* Collections title */
+    /* Collections section header */
     [class*="SidebarContainer"] h2,
-    [class*="SidebarContainer"] h3 {
+    [class*="SidebarContainer"] h3,
+    [class*="SidebarContainer"] [class*="Heading"] {
       color: white !important;
+      padding: 12px 16px !important;
+      margin: 0 !important;
     }
 
-    /* Collection navigation links */
-    [class*="SidebarNavLink"] {
-      color: rgba(255, 255, 255, 0.85) !important;
-      border-radius: 8px !important;
-      margin: 4px 8px !important;
-      padding: 10px 16px !important;
-      transition: all 0.3s ease !important;
-    }
-
-    [class*="SidebarNavLink"]:hover {
-      background-color: rgba(255, 255, 255, 0.15) !important;
-      color: white !important;
-    }
-
-    [class*="SidebarNavLinkActive"] {
-      background-color: rgba(255, 255, 255, 0.2) !important;
-      color: white !important;
-      font-weight: 600 !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
-    }
-
-    /* Blog Posts section - improve from grey to white */
-    [class*="CollectionContainer"],
-    [class*="CollectionMain"] {
-      background-color: #ffffff !important;
-    }
-
-    /* Collection list items - clean white cards */
-    [class*="CollectionCard"],
-    [class*="ListCard"] {
-      background: white !important;
-      border: 1px solid #e5e7eb !important;
-      border-radius: 8px !important;
-      transition: all 0.3s ease !important;
-    }
-
-    [class*="CollectionCard"]:hover,
-    [class*="ListCard"]:hover {
-      border-color: var(--color-accent) !important;
-      box-shadow: 0 2px 8px rgba(30, 111, 62, 0.1) !important;
+    /* Search in sidebar */
+    [class*="SidebarContainer"] [class*="SearchContainer"] {
+      padding: 12px 16px !important;
+      background-color: transparent !important;
     }
 
     /* Search input in sidebar */
-    [class*="SidebarContainer"] input {
-      background-color: rgba(255, 255, 255, 0.2) !important;
-      border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    [class*="SidebarContainer"] input[type="text"],
+    [class*="SidebarContainer"] input[type="search"] {
+      background-color: rgba(255, 255, 255, 0.15) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
       color: white !important;
-      border-radius: 8px !important;
+      border-radius: 6px !important;
+      padding: 8px 12px !important;
     }
 
     [class*="SidebarContainer"] input::placeholder {
@@ -97,23 +67,113 @@
     }
 
     [class*="SidebarContainer"] input:focus {
-      background-color: rgba(255, 255, 255, 0.3) !important;
-      border-color: rgba(255, 255, 255, 0.5) !important;
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      border-color: rgba(255, 255, 255, 0.4) !important;
+      outline: none !important;
     }
 
-    /* Keep tabs and other elements default - only style active state */
-    [class*="Tab-active"] {
+    /* Collection navigation items */
+    [class*="SidebarNavLink"],
+    [class*="SidebarContainer"] a,
+    [class*="SidebarContainer"] [class*="NavLink"] {
+      color: rgba(255, 255, 255, 0.9) !important;
+      border-radius: 6px !important;
+      margin: 4px 12px !important;
+      padding: 10px 12px !important;
+      transition: all 0.2s ease !important;
+      background-color: transparent !important;
+    }
+
+    [class*="SidebarNavLink"]:hover,
+    [class*="SidebarContainer"] a:hover {
+      background-color: rgba(255, 255, 255, 0.2) !important;
+      color: white !important;
+    }
+
+    /* Active collection link */
+    [class*="SidebarNavLinkActive"],
+    [class*="SidebarContainer"] [class*="active"] {
+      background-color: rgba(255, 255, 255, 0.25) !important;
+      color: white !important;
+      font-weight: 600 !important;
+    }
+
+    /* Main content area - clean white */
+    [class*="CollectionContainer"],
+    [class*="CollectionMain"],
+    [class*="ListContainer"] {
+      background-color: #f9fafb !important;
+    }
+
+    /* Collection header area */
+    [class*="CollectionTop"],
+    [class*="CollectionControls"] {
+      background-color: white !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      padding: 16px 24px !important;
+    }
+
+    /* Collection list items - consistent cards */
+    [class*="CollectionCard"],
+    [class*="ListCard"],
+    [class*="CardContainer"] {
+      background: white !important;
+      border: 1px solid #e5e7eb !important;
+      border-radius: 8px !important;
+      margin-bottom: 12px !important;
+      transition: all 0.2s ease !important;
+    }
+
+    [class*="CollectionCard"]:hover,
+    [class*="ListCard"]:hover {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 2px 8px rgba(30, 111, 62, 0.12) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    /* New Blog Post button */
+    button[class*="Button-default"],
+    button[class*="ViewControlsButton"] {
+      border-color: var(--color-primary) !important;
+    }
+
+    button[class*="Button-default"]:hover {
+      background-color: var(--color-light) !important;
+      border-color: var(--color-hover) !important;
+    }
+
+    /* Active tab indicator */
+    [class*="Tab-active"],
+    [class*="TabButton-active"] {
       border-bottom-color: var(--color-primary) !important;
       color: var(--color-primary) !important;
     }
 
-    /* Subtle brand color for links */
-    a[class*="EntryCard"] {
+    /* Links in entries */
+    a[class*="EntryCard"],
+    [class*="CardLink"] {
       color: var(--color-primary) !important;
+      text-decoration: none !important;
     }
 
     a[class*="EntryCard"]:hover {
       color: var(--color-hover) !important;
+    }
+
+    /* Sort controls */
+    [class*="SortControl"] select {
+      border-color: #e5e7eb !important;
+      border-radius: 6px !important;
+    }
+
+    /* View toggle buttons */
+    [class*="ViewControls"] button {
+      border-radius: 6px !important;
+    }
+
+    [class*="ViewControls"] button[class*="active"] {
+      background-color: var(--color-primary) !important;
+      color: white !important;
     }
   </style>
 </head>
