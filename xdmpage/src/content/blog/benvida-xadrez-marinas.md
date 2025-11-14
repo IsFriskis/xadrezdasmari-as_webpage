@@ -5,6 +5,10 @@ description: Descubre a nosa comunidade de xadrez e �nete � nosa viaxe polo
   niveis, desde principiantes ata xogadores avanzados.
 date: 2024-11-01
 image: /images/uploads/logo-dibujo-ruper.jpg
+tags:
+  - Comunidade
+  - Club
+  - Benvida
 ---
 
 Benvido ao noso blog! Estamos encantados de compartir contigo novas, artigos e actualizaci�ns sobre o noso club de xadrez.

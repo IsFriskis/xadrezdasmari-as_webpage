@@ -1,23 +1,27 @@
 ---
 title: "Historia do Xadrez en Galicia"
-description: "Un percorrido pola rica historia do xadrez na nosa terra, desde as súas orixes ata os nosos días. Descubre os grandes mestres galegos."
+description: "Un percorrido pola rica historia do xadrez na nosa terra, desde as sï¿½as orixes ata os nosos dï¿½as. Descubre os grandes mestres galegos."
 date: 2024-10-15
+tags:
+  - Historia
+  - Galicia
+  - Cultura
 ---
 
-Galicia ten unha rica tradición xadrecística que se remonta a séculos atrás. Neste artigo, faremos un percorrido pola historia do xadrez na nosa terra.
+Galicia ten unha rica tradiciï¿½n xadrecï¿½stica que se remonta a sï¿½culos atrï¿½s. Neste artigo, faremos un percorrido pola historia do xadrez na nosa terra.
 
 ## As Orixes
 
-O xadrez chegou a Galicia a través das rutas de peregrinación e o comercio medieval. Os primeiros rexistros datan do século XIII, cando o xogo xa era practicado nos mosteiros e castelos galegos.
+O xadrez chegou a Galicia a travï¿½s das rutas de peregrinaciï¿½n e o comercio medieval. Os primeiros rexistros datan do sï¿½culo XIII, cando o xogo xa era practicado nos mosteiros e castelos galegos.
 
-## O Século XX
+## O Sï¿½culo XX
 
-Durante o século XX, o xadrez galego experimentou un gran desenvolvemento, con a creación de numerosos clubs e a participación de xogadores galegos en competicións nacionais e internacionais.
+Durante o sï¿½culo XX, o xadrez galego experimentou un gran desenvolvemento, con a creaciï¿½n de numerosos clubs e a participaciï¿½n de xogadores galegos en competiciï¿½ns nacionais e internacionais.
 
 ## Grandes Mestres Galegos
 
-Galicia ten o orgullo de contar con varios mestres internacionais que han representado á nosa terra en competicións de alto nivel ao redor do mundo.
+Galicia ten o orgullo de contar con varios mestres internacionais que han representado ï¿½ nosa terra en competiciï¿½ns de alto nivel ao redor do mundo.
 
 ## O Futuro
 
-Hoxe en día, o xadrez galego continúa medrando, con novas xeracións de xogadores que levan o noso xogo a novos horizontes.
+Hoxe en dï¿½a, o xadrez galego continï¿½a medrando, con novas xeraciï¿½ns de xogadores que levan o noso xogo a novos horizontes.
