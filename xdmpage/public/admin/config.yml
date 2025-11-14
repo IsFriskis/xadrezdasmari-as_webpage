@@ -43,6 +43,14 @@ collections:
           required: false,
           hint: "Imaxe destacada para a entrada (opcional). Fai clic en 'Choose different image' para subir unha imaxe"
         }
+      - {
+          label: "Etiquetas",
+          name: "tags",
+          widget: "list",
+          required: false,
+          hint: "Engade etiquetas para categorizar a entrada (ex: 'Torneos', 'Iniciación', 'Noticias')",
+          field: { label: "Etiqueta", name: "tag", widget: "string" }
+        }
       - { 
           label: "Contido", 
           name: "body", 

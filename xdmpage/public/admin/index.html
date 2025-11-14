@@ -13,68 +13,157 @@
       --color-primary: #1e6f3e;
       --color-hover: #16803d;
       --color-accent: #2d8f52;
+      --color-light: #e8f5ea;
+    }
+
+    /* Main background */
+    body {
+      background-color: #f5f5f5 !important;
     }
 
     /* Header and sidebar */
-    [class*="AppHeader"] {
-      background-color: var(--color-primary) !important;
+    [class*="AppHeader"],
+    [class*="AppHeaderContent"] {
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
     }
 
     [class*="SidebarContainer"] {
       background-color: var(--color-primary) !important;
+      border-right: none !important;
     }
 
     [class*="SidebarNavLink"] {
-      color: rgba(255, 255, 255, 0.9) !important;
+      color: rgba(255, 255, 255, 0.85) !important;
+      border-radius: 8px !important;
+      margin: 4px 8px !important;
+      padding: 10px 16px !important;
+      transition: all 0.3s ease !important;
     }
 
     [class*="SidebarNavLink"]:hover {
-      background-color: var(--color-hover) !important;
+      background-color: rgba(255, 255, 255, 0.15) !important;
       color: white !important;
+      transform: translateX(4px) !important;
     }
 
     [class*="SidebarNavLinkActive"] {
-      background-color: var(--color-hover) !important;
+      background-color: rgba(255, 255, 255, 0.2) !important;
       color: white !important;
       font-weight: 600 !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
     }
 
-    /* Buttons */
+    /* Buttons - Primary */
     button[class*="Button-button"],
+    button[class*="button-primary"],
     [class*="ToolbarButton"],
-    [class*="Dropdown-button"] {
-      background-color: var(--color-primary) !important;
-      border-color: var(--color-primary) !important;
+    [class*="PublishButton"] {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent)) !important;
+      border: none !important;
+      border-radius: 8px !important;
+      color: white !important;
+      font-weight: 600 !important;
+      padding: 10px 20px !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 2px 6px rgba(30, 111, 62, 0.3) !important;
     }
 
     button[class*="Button-button"]:hover,
-    [class*="ToolbarButton"]:hover {
-      background-color: var(--color-hover) !important;
-      border-color: var(--color-hover) !important;
-    }
-
-    /* Primary action buttons */
-    button[class*="button-primary"],
-    [class*="PublishButton"] {
-      background-color: var(--color-primary) !important;
-    }
-
     button[class*="button-primary"]:hover,
+    [class*="ToolbarButton"]:hover,
     [class*="PublishButton"]:hover {
-      background-color: var(--color-hover) !important;
+      background: linear-gradient(135deg, var(--color-hover), var(--color-primary)) !important;
+      transform: translateY(-2px) !important;
+      box-shadow: 0 4px 12px rgba(30, 111, 62, 0.4) !important;
     }
 
-    /* Links and accents */
-    a[class*="AppHeaderButton"],
-    [class*="ControlContainer"] input:focus,
-    [class*="ControlContainer"] textarea:focus {
+    /* Delete button */
+    button[class*="button"][class*="red"],
+    [class*="DeleteButton"] {
+      background: linear-gradient(135deg, #dc2626, #b91c1c) !important;
+      box-shadow: 0 2px 6px rgba(220, 38, 38, 0.3) !important;
+    }
+
+    button[class*="button"][class*="red"]:hover {
+      background: linear-gradient(135deg, #b91c1c, #991b1b) !important;
+      box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4) !important;
+    }
+
+    /* Secondary buttons */
+    button[class*="button-secondary"],
+    [class*="ChooseUrl"] {
+      background-color: white !important;
+      color: var(--color-primary) !important;
+      border: 2px solid var(--color-primary) !important;
+      border-radius: 8px !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease !important;
+    }
+
+    button[class*="button-secondary"]:hover {
+      background-color: var(--color-light) !important;
+      border-color: var(--color-hover) !important;
+      color: var(--color-hover) !important;
+    }
+
+    /* Cards and containers */
+    [class*="CollectionCard"],
+    [class*="ListCard"],
+    [class*="Card"] {
+      border-radius: 12px !important;
+      border: 1px solid #e5e7eb !important;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08) !important;
+      transition: all 0.3s ease !important;
+      background: white !important;
+    }
+
+    [class*="CollectionCard"]:hover,
+    [class*="ListCard"]:hover {
       border-color: var(--color-accent) !important;
+      box-shadow: 0 4px 12px rgba(30, 111, 62, 0.15) !important;
+      transform: translateY(-2px) !important;
     }
 
     /* Selected items */
     [class*="CardSelected"],
     [class*="ListCardSelected"] {
       border-color: var(--color-primary) !important;
+      background-color: var(--color-light) !important;
+    }
+
+    /* Form inputs */
+    [class*="ControlContainer"] input,
+    [class*="ControlContainer"] textarea,
+    [class*="ControlContainer"] select {
+      border-radius: 8px !important;
+      border: 2px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    [class*="ControlContainer"] input:focus,
+    [class*="ControlContainer"] textarea:focus,
+    [class*="ControlContainer"] select:focus {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 0 3px rgba(30, 111, 62, 0.1) !important;
+      outline: none !important;
+    }
+
+    /* Labels */
+    [class*="ControlLabel"],
+    [class*="FieldLabel"] {
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+      margin-bottom: 8px !important;
+    }
+
+    /* Hints */
+    [class*="ControlHint"],
+    [class*="FieldHint"] {
+      color: #6b7280 !important;
+      font-size: 0.875rem !important;
+      margin-top: 4px !important;
     }
 
     /* Toggle switches */
@@ -82,26 +171,125 @@
       background-color: var(--color-primary) !important;
     }
 
+    [class*="Toggle-track"] {
+      border-radius: 12px !important;
+    }
+
     /* Progress bars */
     [class*="Progress-progress"] {
-      background-color: var(--color-primary) !important;
+      background: linear-gradient(90deg, var(--color-primary), var(--color-accent)) !important;
+      border-radius: 4px !important;
+    }
+
+    /* Tabs */
+    [class*="Tab"] {
+      border-radius: 8px 8px 0 0 !important;
+      padding: 12px 20px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    [class*="Tab-active"] {
+      border-bottom: 3px solid var(--color-primary) !important;
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+      background-color: white !important;
+    }
+
+    [class*="Tab"]:hover:not([class*="active"]) {
+      background-color: rgba(30, 111, 62, 0.05) !important;
     }
 
     /* Brand customization */
     [class*="AppHeader"] h1,
-    [class*="AppHeader"] span {
+    [class*="AppHeader"] span,
+    [class*="AppHeaderButton"] {
       color: white !important;
     }
 
-    /* Collection cards hover */
-    [class*="CollectionCard"]:hover {
+    /* Media upload area */
+    [class*="DropZone"],
+    [class*="ImagePreview"] {
+      border-radius: 12px !important;
+      border: 2px dashed var(--color-accent) !important;
+      background-color: rgba(30, 111, 62, 0.03) !important;
+      transition: all 0.3s ease !important;
+    }
+
+    [class*="DropZone"]:hover {
+      border-color: var(--color-primary) !important;
+      background-color: rgba(30, 111, 62, 0.08) !important;
+    }
+
+    /* Search box */
+    [class*="SearchInput"],
+    input[type="search"] {
+      border-radius: 10px !important;
+      border: 2px solid #e5e7eb !important;
+      padding: 12px 16px !important;
+      font-size: 1rem !important;
+      transition: all 0.3s ease !important;
+    }
+
+    input[type="search"]:focus {
+      border-color: var(--color-accent) !important;
+      box-shadow: 0 0 0 3px rgba(30, 111, 62, 0.1) !important;
+    }
+
+    /* Collection items */
+    [class*="CollectionContainer"] {
+      border-radius: 12px !important;
+      overflow: hidden !important;
+    }
+
+    /* Improve readability */
+    [class*="EntryCard"] h2,
+    [class*="CardTitle"] {
+      color: var(--color-primary) !important;
+      font-weight: 600 !important;
+    }
+
+    /* Date picker */
+    [class*="DateTimePicker"] {
+      border-radius: 8px !important;
       border-color: var(--color-accent) !important;
     }
 
-    /* Tabs */
-    [class*="Tab-active"] {
-      border-bottom-color: var(--color-primary) !important;
-      color: var(--color-primary) !important;
+    /* Rich text editor */
+    [class*="RichText"] {
+      border-radius: 8px !important;
+      border: 2px solid #e5e7eb !important;
+    }
+
+    [class*="RichText"]:focus-within {
+      border-color: var(--color-accent) !important;
+    }
+
+    /* Status badges */
+    [class*="StatusPill"],
+    [class*="Badge"] {
+      border-radius: 20px !important;
+      padding: 4px 12px !important;
+      font-weight: 600 !important;
+    }
+
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--color-accent);
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--color-primary);
     }
   </style>
 </head>

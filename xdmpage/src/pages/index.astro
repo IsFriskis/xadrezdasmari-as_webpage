@@ -13,7 +13,8 @@ const posts = allPosts
     description: post.data.description,
     date: post.data.date.toISOString().split('T')[0],
     slug: post.slug,
-    image: post.data.image
+    image: post.data.image,
+    tags: post.data.tags
   }));
 ---
 

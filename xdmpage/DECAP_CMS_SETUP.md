@@ -81,6 +81,10 @@ Decap CMS is configured to work with **Netlify Identity + Git Gateway**.
    - **Descrición**: Short summary (2-3 sentences) that appears on blog cards
    - **Data de Publicación**: Select the publish date and time
    - **Imaxe** (optional): Click "Choose different image" to upload a featured image
+   - **Etiquetas** (optional): Add tags to categorize your post (e.g., "Torneos", "Iniciación", "Noticias")
+     - Click "+ Add Etiquetas" to add a tag
+     - Type the tag name and press Enter
+     - Add multiple tags to help organize content
    - **Contido**: Write your full blog post content using Markdown
    
 4. **Preview and publish:**
@@ -107,8 +111,10 @@ Decap CMS is configured to work with **Netlify Identity + Git Gateway**.
 - Keep descriptions concise (150-200 characters)
 - Use Markdown for formatting: `**bold**`, `*italic*`, `# Heading`
 - Posts appear automatically on the blog page sorted by date
+- Use tags to categorize posts: "Torneos", "Iniciación", "Avanzado", "Noticias", "Eventos", etc.
+- Tags help users find related content quickly
 
-## �🔧 Current Configuration
+## 🔧 Current Configuration
 
 ### Backend
 - **Type:** Git Gateway (Netlify Identity)
