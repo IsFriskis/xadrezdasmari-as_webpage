@@ -15,8 +15,11 @@ const posts = allPosts
     date: post.data.date.toISOString().split('T')[0],
     slug: post.slug,
     image: post.data.image,
-    tags: post.data.tags
+    tags: post.data.tags || []
   }));
+
+// Get all unique tags
+const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
 ---
 
 <BaseLayout 
@@ -32,14 +35,59 @@ const posts = allPosts
 
   <section class="blog-content">
     <div class="container">
+      {allTags.length > 0 && (
+        <div class="tag-filter">
+          <h3>Filtrar por etiqueta:</h3>
+          <div class="tag-list">
+            <button class="tag-button active" data-tag="all">
+              Todas
+            </button>
+            {allTags.map(tag => (
+              <button class="tag-button" data-tag={tag}>
+                {tag}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      
       <div class="blog-grid">
         {posts.map(post => (
-          <BlogCard {...post} />
+          <div class="blog-item" data-tags={JSON.stringify(post.tags)}>
+            <BlogCard {...post} />
+          </div>
         ))}
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<script>
+  // Tag filter functionality
+  const tagButtons = document.querySelectorAll('.tag-button');
+  const blogItems = document.querySelectorAll('.blog-item');
+
+  tagButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const selectedTag = button.getAttribute('data-tag');
+      
+      // Update active button
+      tagButtons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+      
+      // Filter blog posts
+      blogItems.forEach(item => {
+        const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
+        
+        if (selectedTag === 'all' || itemTags.includes(selectedTag)) {
+          item.style.display = '';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    });
+  });
+</script>
 
 <style>
   .blog-header {
@@ -64,10 +112,56 @@ const posts = allPosts
     padding: var(--space-2xl) 0;
   }
 
+  .tag-filter {
+    background: white;
+    padding: var(--space-lg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--space-xl);
+  }
+
+  .tag-filter h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .tag-button {
+    padding: var(--space-sm) var(--space-md);
+    border: 2px solid var(--color-primary);
+    background: white;
+    color: var(--color-primary);
+    border-radius: var(--radius-full);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .tag-button:hover {
+    background: var(--color-light);
+    transform: translateY(-2px);
+  }
+
+  .tag-button.active {
+    background: var(--color-primary);
+    color: white;
+  }
+
   .blog-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: var(--space-lg);
+  }
+
+  .blog-item {
+    transition: opacity 0.3s ease;
   }
 
   @media (max-width: 768px) {
@@ -85,6 +179,14 @@ const posts = allPosts
 
     .blog-content {
       padding: var(--space-xl) 0;
+    }
+
+    .tag-filter {
+      padding: var(--space-md);
+    }
+
+    .tag-filter h3 {
+      font-size: 1.1rem;
     }
   }
 </style>
