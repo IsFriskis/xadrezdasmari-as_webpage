@@ -80,9 +80,9 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
         const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
         
         if (selectedTag === 'all' || itemTags.includes(selectedTag)) {
-          item.style.display = '';
+          (item as HTMLElement).style.display = '';
         } else {
-          item.style.display = 'none';
+          (item as HTMLElement).style.display = 'none';
         }
       });
     });
