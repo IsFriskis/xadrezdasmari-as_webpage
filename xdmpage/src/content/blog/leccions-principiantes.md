@@ -1,35 +1,35 @@
 ---
-title: "Lecci�ns de Xadrez para Principiantes"
-description: "Comezamos as nosas clases de xadrez para principiantes. Ap�ntate agora! As clases son impartidas por monitores certificados e te�en lugar todas as semanas."
+title: "Leccións de Xadrez para Principiantes"
+description: "Comezamos as nosas clases de xadrez para principiantes. Apúntate agora! As clases son impartidas por monitores certificados e teñen lugar todas as semanas."
 date: 2024-10-20
-image: "/images/lessons.jpg"
+image: "/images/base.pnghttps://www.fide.com/fide-world-cup-2025-to-be-hosted-in-india/"
 tags:
   - Principiantes
   - Clases
-  - Educaci�n
+  - Educación
 ---
 
-Estamos encantados de anunciar o inicio das nosas clases de xadrez para principiantes! Se sempre quixeches aprender a xogar ao xadrez, esta � a t�a oportunidade.
+Estamos encantados de anunciar o inicio das nosas clases de xadrez para principiantes! Se sempre quixeches aprender a xogar ao xadrez, esta é a túa oportunidade.
 
-## Que Aprender�s
+## Que Aprenderás
 
 Durante o curso, cubriremos:
 
-- As regras b�sicas do xadrez
+- As regras básicas do xadrez
 - O movemento das pezas
-- T�cticas b�sicas
+- Tácticas básicas
 - Estratexias de apertura
 - Finais fundamentais
 
 ## Detalles das Clases
 
-- **Duraci�n:** 8 semanas
+- **Duración:** 8 semanas
 - **Frecuencia:** 2 clases por semana
 - **Horario:** Martes e Xoves, 18:00-19:30
 - **Profesor:** Monitores certificados pola FEDA
 
-Non necesitas ningunha experiencia previa. Todo o material est� inclu�do no curso.
+Non necesitas ningunha experiencia previa. Todo o material está incluído no curso.
 
 ## Como Inscribirte
 
-Para inscribirte ou obter m�is informaci�n, [contacta connosco](/contact).
+Para inscribirte ou obter máis información, [contacta connosco](/contact).
