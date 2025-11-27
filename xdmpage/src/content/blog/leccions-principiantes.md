@@ -2,7 +2,7 @@
 title: "Leccións de Xadrez para Principiantes"
 description: "Comezamos as nosas clases de xadrez para principiantes. Apúntate agora! As clases son impartidas por monitores certificados e teñen lugar todas as semanas."
 date: 2024-10-20
-image: "/images/base.pnghttps://www.fide.com/fide-world-cup-2025-to-be-hosted-in-india/"
+image: "/images/base.png"
 tags:
   - Principiantes
   - Clases
