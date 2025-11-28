@@ -1,6 +1,6 @@
 ---
-title: Benvida ao Xadrez das Mari�as
-description: Descubre a nosa comunidade de xadrez e �nete � nosa viaxe polo
+title: Benvida ao Xadrez das Mariñas
+description: Descubre a nosa comunidade de xadrez e únete á nosa viaxe polo
   fascinante mundo do xadrez. O noso club ofrece actividades para todos os
   niveis, desde principiantes ata xogadores avanzados.
 date: 2024-11-01
@@ -11,24 +11,24 @@ tags:
   - Benvida
 ---
 
-Benvido ao noso blog! Estamos encantados de compartir contigo novas, artigos e actualizaci�ns sobre o noso club de xadrez.
+Benvido ao noso blog! Estamos encantados de compartir contigo novas, artigos e actualizacións sobre o noso club de xadrez.
 
 ## Quen Somos
 
-O Xadrez das Mari�as � m�is que un club de xadrez; � unha comunidade de persoas apaixonadas por este xogo milenario. Dende hai m�is de d�as d�cadas, temos traballado para promover o xadrez na comarca das Mari�as e en toda Galicia.
+O Xadrez das Mariñas é máis que un club de xadrez; é unha comunidade de persoas apaixonadas por este xogo milenario. Dende hai máis de dúas décadas, temos traballado para promover o xadrez na comarca das Mariñas e en toda Galicia.
 
 ## Que Ofrecemos
 
-No noso club, atopar�s:
+No noso club, atoparás:
 
-- Clases para todos os niveis, desde iniciaci�n ata avanzado
+- Clases para todos os niveis, desde iniciación ata avanzado
 - Torneos regulares para socios e abertos
-- Simult�neas con mestres
+- Simultáneas con mestres
 - Actividades especiais para nenos e novos
 - Unha comunidade acolledora e inclusiva
 
-## �nete a N�s
+## Únete a Nós
 
-Se est�s interesado en aprender xadrez ou mellorar o teu nivel, este � o lugar perfecto para ti. Non importa se es principiante ou xogador experimentado, todos son benvidos no noso club.
+Se estás interesado en aprender xadrez ou mellorar o teu nivel, este é o lugar perfecto para ti. Non importa se es principiante ou xogador experimentado, todos son benvidos no noso club.
 
-Para m�is informaci�n, non dubides en [contactar connosco](/contact).
+Para máis información, non dubides en [contactar connosco](/contact).

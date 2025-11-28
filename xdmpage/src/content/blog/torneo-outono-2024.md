@@ -1,27 +1,27 @@
 ---
 title: "Torneo de Outono 2024"
-description: "Anunciamos o noso torneo de outono. Todos os niveis son benvidos! O torneo ter� lugar durante o mes de novembro e contar� con premios para os ga�adores."
+description: "Anunciamos o noso torneo de outono. Todos os niveis son benvidos! O torneo terá lugar durante o mes de novembro e contará con premios para os gañadores."
 date: 2024-10-28
-image: "/images/tournament.jpg"
+image: "/images/tournament.png"
 tags:
   - Torneos
   - Eventos
-  - Competici�n
+  - Competición
 ---
 
-� un pracer anunciar que organizaremos o noso torneo de outono durante o mes de novembro. Este evento est� aberto a xogadores de todos os niveis!
+É un pracer anunciar que organizaremos o noso torneo de outono durante o mes de novembro. Este evento está aberto a xogadores de todos os niveis!
 
 ## Detalles do Torneo
 
 - **Data:** Novembro 2024
-- **Formato:** Sistema su�zo a 6 roldas
+- **Formato:** Sistema suízo a 6 roldas
 - **Ritmo:** 15 minutos + 3 segundos de incremento
-- **Categor�as:** Aberta e Sub-16
+- **Categorías:** Aberta e Sub-16
 
 ## Premios
 
-Habr� premios para os tres primeiros clasificados de cada categor�a, ademais de premios especiais para o mellor veterano, mellor xuvenil e outras categor�as.
+Haberá premios para os tres primeiros clasificados de cada categoría, ademais de premios especiais para o mellor veterano, mellor xuvenil e outras categorías.
 
-## Inscrici�ns
+## Inscricións
 
-As inscrici�ns xa est�n abertas. Para inscribirte, visita a nosa p�xina de [contacto](/contact) ou env�anos un email.
+As inscricións xa están abertas. Para inscribirte, visita a nosa páxina de [contacto](/contact) ou envíanos un email.

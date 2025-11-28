@@ -5,51 +5,47 @@ const currentYear = new Date().getFullYear();
 <footer>
   <div class="container">
     <!-- Sponsors/Partners Section -->
-    <div class="footer-logos">
-      <h4>Colaboradores</h4>
-      <div class="logos-grid">
-        <a href="#" target="_blank" rel="noopener" class="logo-link">
-          <img src="/logo deputacion da coruña.png" alt="Deputación da Coruña" />
-        </a>
-        <a href="#" target="_blank" rel="noopener" class="logo-link">
-          <img src="/logo fegaxa.jfif" alt="FEGAXA" />
-        </a>
-        <a href="#" target="_blank" rel="noopener" class="logo-link">
-          <img src="/logo xogade.jfif" alt="Xogade" />
-        </a>
+    <div class="footer-top">
+      <div class="footer-left">
+        <div class="footer-section compact">
+          <h3>Xadrez das Mariñas</h3>
+          <p>Club de Ajedrez das Mariñas</p>
+          <p>Promovendo o xadrez en Galicia</p>
+        </div>
+
+        <div class="footer-section compact social-compact">
+          <h4>Síguenos</h4>
+          <div class="social-links">
+            <a href="#" target="_blank" rel="noopener" aria-label="Facebook" class="social-facebook">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 17.9895 4.3882 22.954 10.125 23.8542V15.4688H7.07812V12H10.125V9.35625C10.125 6.34875 11.9166 4.6875 14.6576 4.6875C15.9701 4.6875 17.3438 4.92188 17.3438 4.92188V7.875H15.8306C14.34 7.875 13.875 8.80008 13.875 9.75V12H17.2031L16.6711 15.4688H13.875V23.8542C19.6118 22.954 24 17.9895 24 12Z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Twitter" class="social-twitter">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+            </a>
+            <a href="#" target="_blank" rel="noopener" aria-label="Instagram" class="social-instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.16094C14.2063 2.16094 14.4656 2.16969 15.3516 2.20969C16.1859 2.24656 16.6406 2.38719 16.9453 2.50469C17.3578 2.66344 17.6578 2.85469 17.9703 3.16719C18.2859 3.48281 18.4766 3.77969 18.6359 4.19219C18.7531 4.49687 18.8938 4.95469 18.9313 5.78594C18.9719 6.67501 18.9797 6.93437 18.9797 9.13751V11.8625C18.9797 14.0688 18.9709 14.3281 18.9313 15.2141C18.8944 16.0484 18.7538 16.5031 18.6359 16.8078C18.4772 17.2203 18.2859 17.5203 17.9703 17.8328C17.6547 18.1484 17.3578 18.3391 16.9453 18.4984C16.6406 18.6156 16.1828 18.7563 15.3516 18.7938C14.4625 18.8344 14.2031 18.8422 12 18.8422C9.79375 18.8422 9.53438 18.8334 8.64844 18.7938C7.81406 18.7569 7.35938 18.6163 7.05469 18.4984C6.64219 18.3397 6.34219 18.1484 6.02969 17.8328C5.71406 17.5172 5.52344 17.2203 5.36406 16.8078C5.24688 16.5031 5.10625 16.0453 5.06875 15.2141C5.02813 14.325 5.02031 14.0656 5.02031 11.8625V9.13751C5.02031 6.93126 5.02906 6.67188 5.06875 5.78594C5.10563 4.95156 5.24625 4.49687 5.36406 4.19219C5.52281 3.77969 5.71406 3.47969 6.02969 3.16719C6.34531 2.85156 6.64219 2.66094 7.05469 2.50156C7.35938 2.38437 7.81719 2.24375 8.64844 2.20625C9.53438 2.16969 9.79375 2.16094 12 2.16094ZM12 0C9.74219 0 9.46406 0.00937502 8.56406 0.0499975C7.66719 0.0906225 7.03594 0.236873 6.48906 0.450623C5.92031 0.671998 5.43594 0.968748 4.95469 1.45312C4.47031 1.93437 4.17344 2.41875 3.95156 2.98437C3.73781 3.53437 3.59156 4.16251 3.55094 5.05938C3.51031 5.96251 3.5 6.24063 3.5 8.5V15.5C3.5 17.7594 3.50938 18.0375 3.54969 18.9375C3.59031 19.8344 3.73656 20.4656 3.95031 21.0125C4.17156 21.5813 4.46844 22.0656 4.95281 22.5469C5.43406 23.0281 5.91844 23.3281 6.48406 23.5469C7.03406 23.7609 7.66219 23.9072 8.55906 23.9478C9.45906 23.9884 9.73719 23.9978 11.9953 23.9978C14.2531 23.9978 14.5313 23.9884 15.4313 23.9478C16.3281 23.9072 16.9594 23.7609 17.5063 23.5469C18.0719 23.3281 18.5563 23.0313 19.0375 22.5469C19.5188 22.0625 19.8188 21.5781 20.0375 21.0125C20.2516 20.4625 20.3978 19.8344 20.4384 18.9375C20.4791 18.0375 20.4884 17.7594 20.4884 15.5V8.5C20.4884 6.24063 20.4791 5.96251 20.4384 5.0625C20.3978 4.16563 20.2516 3.53437 20.0375 2.9875C19.8219 2.41875 19.525 1.93437 19.0406 1.45312C18.5563 0.971872 18.0719 0.671998 17.5094 0.450623C16.9594 0.236873 16.3313 0.0906225 15.4344 0.0499975C14.5313 0.00937502 14.2531 0 11.9984 0H12Z" fill="currentColor"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-right">
+        <div class="footer-section links-2col">
+          <h4>Ligazóns</h4>
+          <ul>
+            <li><a href="/">Inicio</a></li>
+            <li><a href="/torneos">Torneos</a></li>
+            <li><a href="/clases">Clases</a></li>
+            <li><a href="/blog">Blog</a></li>
+            <li><a href="/about">Sobre Nós</a></li>
+            <li><a href="/contact">Contacto</a></li>
+            <li><a href="/privacidade">Privacidade & Legal</a></li>
+            <li><a href="/admin" class="admin-link">⚙️ Administración</a></li>
+          </ul>
+        </div>
       </div>
     </div>
 
-    <div class="footer-content">
-      <div class="footer-section">
-        <h3>Xadrez das Mariñas</h3>
-        <p>Club de Ajedrez das Mariñas</p>
-        <p>Promovendo o xadrez en Galicia</p>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Ligazóns</h4>
-        <ul>
-          <li><a href="/">Inicio</a></li>
-          <li><a href="/torneos">Torneos</a></li>
-          <li><a href="/clases">Clases</a></li>
-          <li><a href="/blog">Blog</a></li>
-          <li><a href="/about">Sobre Nós</a></li>
-          <li><a href="/contact">Contacto</a></li>
-          <li><a href="/admin" class="admin-link">⚙️ Administración</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-section">
-        <h4>Síguenos</h4>
-        <ul>
-          <li><a href="#" target="_blank" rel="noopener">Facebook</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Twitter</a></li>
-          <li><a href="#" target="_blank" rel="noopener">Instagram</a></li>
-        </ul>
-      </div>
-    </div>
-    
     <div class="footer-bottom">
       <p>&copy; {currentYear} Xadrez das Mariñas. Todos os dereitos reservados.</p>
     </div>
@@ -60,77 +56,72 @@ const currentYear = new Date().getFullYear();
   footer {
     background-color: var(--color-primary);
     color: white;
-    padding: var(--space-xl) 0 var(--space-md);
-    margin-top: var(--space-2xl);
+    padding: var(--space-md) 0 var(--space-xs);
+    margin-top: var(--space-lg);
   }
 
-  /* Logos Section */
-  .footer-logos {
-    text-align: center;
-    padding-bottom: var(--space-xl);
-    margin-bottom: var(--space-xl);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-  }
-
-  .footer-logos h4 {
-    color: white;
-    font-size: 1.3rem;
-    margin-bottom: var(--space-lg);
-    font-weight: 600;
-  }
-
-  .logos-grid {
+  /* Compact top area */
+  .footer-top {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--space-xl);
-    flex-wrap: wrap;
-  }
-
-  .logo-link {
-    display: block;
-    background: white;
-    padding: 0.25rem;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    max-width: 280px;
-  }
-
-  .logo-link:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-  }
-
-  .logo-link img {
-    width: 100%;
-    height: auto;
-    max-height: 120px;
-    object-fit: contain;
-    display: block;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    justify-content: space-between;
     gap: var(--space-lg);
-    margin-bottom: var(--space-lg);
+    align-items: flex-start;
+    padding-bottom: var(--space-sm);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .footer-section h3 {
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    min-width: 240px;
+  }
+
+  .footer-left .compact h3,
+  .footer-left .compact h4 {
+    margin: 0;
     color: white;
-    margin-bottom: var(--space-sm);
+    font-size: 1rem;
   }
 
+  .footer-left .compact p {
+    margin: 0;
+    color: var(--color-light);
+    font-size: 0.9rem;
+  }
+
+  .footer-right {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .links-2col ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    column-gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .links-2col ul li {
+    break-inside: avoid-column;
+    margin-bottom: 6px;
+  }
+
+  .footer-section h3,
   .footer-section h4 {
     color: white;
-    font-size: 1.1rem;
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-xs);
+    font-size: 1rem;
   }
 
   .footer-section p {
     color: var(--color-light);
-    margin-bottom: var(--space-xs);
+    margin: 0;
+    font-size: 0.9rem;
   }
 
   .footer-section ul {
@@ -150,51 +141,59 @@ const currentYear = new Date().getFullYear();
     color: white;
   }
 
+  .social-links {
+    display: flex;
+    gap: 8px;
+    margin-top: 6px;
+  }
+
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 6px;
+    color: white;
+    transition: all 0.2s ease;
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .social-links a svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .social-facebook:hover {
+    background: #1877F2;
+    border-color: #1877F2;
+  }
+
+  .social-twitter:hover {
+    background: #000000;
+    border-color: #000000;
+  }
+
+  .social-instagram:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    border-color: transparent;
+  }
+
   .admin-link {
-    opacity: 0.7;
+    opacity: 0.8;
     font-size: 0.9rem;
   }
 
-  .admin-link:hover {
-    opacity: 1;
-  }
+  .admin-link:hover { opacity: 1; }
 
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: var(--space-md);
-    text-align: center;
-  }
-
-  .footer-bottom p {
-    color: var(--color-light);
-  }
+  .footer-bottom { text-align: center; padding-top: 8px; }
+  .footer-bottom p { color: var(--color-light); margin:0; font-size:0.9rem }
 
   @media (max-width: 768px) {
-    footer {
-      padding: var(--space-lg) 0 var(--space-md);
-    }
-
-    .footer-logos {
-      padding-bottom: var(--space-lg);
-      margin-bottom: var(--space-lg);
-    }
-
-    .logos-grid {
-      gap: var(--space-md);
-    }
-
-    .logo-link {
-      max-width: 220px;
-      padding: 0.2rem;
-    }
-
-    .logo-link img {
-      max-height: 90px;
-    }
-
-    .footer-content {
-      grid-template-columns: 1fr;
-      gap: var(--space-md);
-    }
+    .footer-top { flex-direction: column; gap: var(--space-md); }
+    .footer-right { justify-content: flex-start; }
+    .links-2col ul { columns: 1; }
+    footer { padding: var(--space-md) 0 var(--space-xs); }
   }
 </style>
