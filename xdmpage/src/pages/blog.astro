@@ -202,8 +202,8 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
               }
             });
           } else {
-            // Don't allow unchecking "all" if no other tags are selected
-            if (selectedTags.size === 0) {
+            // Don't allow unchecking "all" if it is the only selected tag
+            if (selectedTags.size === 1 && selectedTags.has('all')) {
               checkbox.checked = true;
             }
           }
