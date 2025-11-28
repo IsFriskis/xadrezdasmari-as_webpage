@@ -37,24 +37,39 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
     <div class="container">
       {allTags.length > 0 && (
         <div class="tag-filter">
-          <h3>Filtrar por etiqueta:</h3>
-          <div class="tag-slider-container">
-            <button class="slider-arrow slider-arrow-left" aria-label="Scroll left">
-              ‹
-            </button>
-            <div class="tag-slider">
-              <button class="tag-button active" data-tag="all">
-                Todas
-              </button>
-              {allTags.map(tag => (
-                <button class="tag-button" data-tag={tag}>
-                  {tag}
-                </button>
-              ))}
+          <h3>Filtrar por etiquetas:</h3>
+          <div class="tag-search-wrapper">
+            <div class="selected-tags" id="selectedTags">
+              <span class="selected-tag-placeholder">Selecciona etiquetas...</span>
             </div>
-            <button class="slider-arrow slider-arrow-right" aria-label="Scroll right">
-              ›
+            <button class="dropdown-toggle" id="dropdownToggle" aria-label="Toggle tag dropdown">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"/>
+              </svg>
             </button>
+            <div class="tag-dropdown" id="tagDropdown">
+              <div class="tag-search-input-wrapper">
+                <input 
+                  type="text" 
+                  class="tag-search-input" 
+                  id="tagSearchInput"
+                  placeholder="Buscar etiquetas..."
+                  autocomplete="off"
+                />
+              </div>
+              <div class="tag-options" id="tagOptions">
+                <label class="tag-option">
+                  <input type="checkbox" value="all" checked data-tag="all" />
+                  <span>Todas</span>
+                </label>
+                {allTags.map(tag => (
+                  <label class="tag-option">
+                    <input type="checkbox" value={tag} data-tag={tag} />
+                    <span>{tag}</span>
+                  </label>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       )}
@@ -72,68 +87,168 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    // Tag filter functionality
-    const tagButtons = document.querySelectorAll('.tag-button');
+    const dropdownToggle = document.getElementById('dropdownToggle') as HTMLElement;
+    const tagDropdown = document.getElementById('tagDropdown') as HTMLElement;
+    const tagSearchInput = document.getElementById('tagSearchInput') as HTMLInputElement;
+    const tagOptions = document.getElementById('tagOptions') as HTMLElement;
+    const selectedTagsContainer = document.getElementById('selectedTags') as HTMLElement;
     const blogItems = document.querySelectorAll('.blog-item');
-    const slider = document.querySelector('.tag-slider') as HTMLElement;
-    const leftArrow = document.querySelector('.slider-arrow-left') as HTMLElement;
-    const rightArrow = document.querySelector('.slider-arrow-right') as HTMLElement;
+    const checkboxes = document.querySelectorAll('.tag-option input[type="checkbox"]') as NodeListOf<HTMLInputElement>;
 
-    // Tag filtering
-    tagButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const selectedTag = button.getAttribute('data-tag');
-        
-        // Update active button
-        tagButtons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-        
-        // Filter blog posts
-        blogItems.forEach(item => {
-          const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
-          
-          if (selectedTag === 'all' || itemTags.includes(selectedTag)) {
-            (item as HTMLElement).style.display = '';
-          } else {
-            (item as HTMLElement).style.display = 'none';
-          }
-        });
+    let selectedTags = new Set<string>(['all']);
+
+    // Toggle dropdown
+    dropdownToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      tagDropdown.classList.toggle('open');
+      if (tagDropdown.classList.contains('open')) {
+        tagSearchInput.focus();
+      }
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!tagDropdown.contains(e.target as Node) && e.target !== dropdownToggle) {
+        tagDropdown.classList.remove('open');
+      }
+    });
+
+    // Search functionality
+    tagSearchInput?.addEventListener('input', (e) => {
+      const searchTerm = (e.target as HTMLInputElement).value.toLowerCase();
+      const options = tagOptions.querySelectorAll('.tag-option');
+      
+      options.forEach(option => {
+        const text = option.textContent?.toLowerCase() || '';
+        if (text.includes(searchTerm)) {
+          (option as HTMLElement).style.display = '';
+        } else {
+          (option as HTMLElement).style.display = 'none';
+        }
       });
     });
 
-    // Slider navigation
-    if (leftArrow && rightArrow && slider) {
-      leftArrow.addEventListener('click', (e) => {
-        e.preventDefault();
-        slider.scrollBy({ left: -200, behavior: 'smooth' });
-      });
-
-      rightArrow.addEventListener('click', (e) => {
-        e.preventDefault();
-        slider.scrollBy({ left: 200, behavior: 'smooth' });
-      });
-
-      // Show/hide arrows based on scroll position
-      const updateArrows = () => {
-        const maxScroll = slider.scrollWidth - slider.clientWidth;
-        
-        if (slider.scrollLeft <= 0) {
-          leftArrow.classList.add('hidden');
-        } else {
-          leftArrow.classList.remove('hidden');
-        }
-
-        if (slider.scrollLeft >= maxScroll - 1) {
-          rightArrow.classList.add('hidden');
-        } else {
-          rightArrow.classList.remove('hidden');
-        }
-      };
-
-      slider.addEventListener('scroll', updateArrows);
-      window.addEventListener('resize', updateArrows);
-      updateArrows(); // Initial check
+    // Update selected tags display
+    function updateSelectedTagsDisplay() {
+      selectedTagsContainer.innerHTML = '';
+      
+      if (selectedTags.size === 0 || (selectedTags.size === 1 && selectedTags.has('all'))) {
+        const placeholder = document.createElement('span');
+        placeholder.className = 'selected-tag-placeholder';
+        placeholder.textContent = 'Selecciona etiquetas...';
+        selectedTagsContainer.appendChild(placeholder);
+      } else {
+        const tagsArray = Array.from(selectedTags).filter(tag => tag !== 'all');
+        tagsArray.forEach((tag, index) => {
+          const tagBadge = document.createElement('span');
+          // Alternate between black and white styles
+          const styleClass = index % 2 === 0 ? 'tag-black' : 'tag-white';
+          tagBadge.className = `selected-tag-badge ${styleClass}`;
+          tagBadge.innerHTML = `
+            <span class="tag-text">${tag}</span>
+            <button class="remove-tag" data-tag="${tag}" aria-label="Remove ${tag}">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="6" x2="6" y2="18"></line>
+                <line x1="6" y1="6" x2="18" y2="18"></line>
+              </svg>
+            </button>
+          `;
+          selectedTagsContainer.appendChild(tagBadge);
+        });
+      }
     }
+
+    // Handle tag removal
+    selectedTagsContainer.addEventListener('click', (e) => {
+      const removeBtn = (e.target as HTMLElement).closest('.remove-tag') as HTMLElement;
+      if (removeBtn) {
+        const tagToRemove = removeBtn.getAttribute('data-tag');
+        if (tagToRemove) {
+          selectedTags.delete(tagToRemove);
+          
+          // Uncheck the corresponding checkbox
+          const checkbox = document.querySelector(`input[data-tag="${tagToRemove}"]`) as HTMLInputElement;
+          if (checkbox) {
+            checkbox.checked = false;
+          }
+          
+          // If no tags left, select "all"
+          if (selectedTags.size === 0) {
+            selectedTags.add('all');
+            const allCheckbox = document.querySelector('input[data-tag="all"]') as HTMLInputElement;
+            if (allCheckbox) allCheckbox.checked = true;
+          }
+          
+          updateSelectedTagsDisplay();
+          filterBlogPosts();
+        }
+      }
+    });
+
+    // Handle checkbox changes
+    checkboxes.forEach(checkbox => {
+      checkbox.addEventListener('change', () => {
+        const tag = checkbox.getAttribute('data-tag');
+        if (!tag) return;
+
+        if (tag === 'all') {
+          if (checkbox.checked) {
+            // If "all" is checked, uncheck others and select only "all"
+            selectedTags.clear();
+            selectedTags.add('all');
+            checkboxes.forEach(cb => {
+              if (cb.getAttribute('data-tag') !== 'all') {
+                cb.checked = false;
+              }
+            });
+          } else {
+            // Don't allow unchecking "all" if no other tags are selected
+            if (selectedTags.size === 0) {
+              checkbox.checked = true;
+            }
+          }
+        } else {
+          // Uncheck "all" when selecting specific tags
+          const allCheckbox = document.querySelector('input[data-tag="all"]') as HTMLInputElement;
+          if (allCheckbox && checkbox.checked) {
+            allCheckbox.checked = false;
+            selectedTags.delete('all');
+          }
+
+          if (checkbox.checked) {
+            selectedTags.add(tag);
+          } else {
+            selectedTags.delete(tag);
+            // If no tags left, select "all"
+            if (selectedTags.size === 0) {
+              selectedTags.add('all');
+              if (allCheckbox) allCheckbox.checked = true;
+            }
+          }
+        }
+
+        updateSelectedTagsDisplay();
+        filterBlogPosts();
+      });
+    });
+
+    // Filter blog posts
+    function filterBlogPosts() {
+      blogItems.forEach(item => {
+        const itemTags = JSON.parse(item.getAttribute('data-tags') || '[]');
+        
+        if (selectedTags.has('all')) {
+          (item as HTMLElement).style.display = '';
+        } else {
+          // Show if item has any of the selected tags
+          const hasSelectedTag = itemTags.some((tag: string) => selectedTags.has(tag));
+          (item as HTMLElement).style.display = hasSelectedTag ? '' : 'none';
+        }
+      });
+    }
+
+    // Initialize
+    updateSelectedTagsDisplay();
   });
 </script>
 
@@ -161,96 +276,285 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
   }
 
   .tag-filter {
-    background: white;
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
     padding: var(--space-lg);
-    border-radius: var(--radius-lg);
-    box-shadow: var(--shadow-sm);
+    border-radius: 16px;
+    box-shadow: 0 4px 16px rgba(30, 111, 62, 0.08);
     margin-bottom: var(--space-xl);
+    border: 1px solid rgba(30, 111, 62, 0.1);
   }
 
   .tag-filter h3 {
     color: var(--color-primary);
     margin-bottom: var(--space-md);
-    font-size: 1.25rem;
-  }
-
-  .tag-slider-container {
-    position: relative;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
     display: flex;
     align-items: center;
-    gap: var(--space-sm);
+    gap: 8px;
   }
 
-  .tag-slider {
+  .tag-filter h3::before {
+    content: "🏷️";
+    font-size: 1.2rem;
+  }
+
+  .tag-search-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .selected-tags {
     display: flex;
-    gap: var(--space-sm);
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    scrollbar-width: none; /* Firefox */
-    -ms-overflow-style: none; /* IE and Edge */
-    padding: var(--space-xs) 0;
-  }
-
-  .tag-slider::-webkit-scrollbar {
-    display: none; /* Chrome, Safari, Opera */
-  }
-
-  .slider-arrow {
-    flex-shrink: 0;
-    width: 40px;
-    height: 40px;
-    border: 2px solid var(--color-primary);
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    min-height: 48px;
+    padding: 10px 45px 10px 14px;
+    border: 2px solid #e8eef0;
+    border-radius: 12px;
     background: white;
-    color: var(--color-primary);
-    border-radius: 50%;
-    font-size: 1.5rem;
-    font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+  }
+
+  .selected-tags:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(30, 111, 62, 0.12);
+    transform: translateY(-1px);
+  }
+
+  .selected-tag-placeholder {
+    color: #94a3b8;
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  /* Dynamic elements need :global because they are created by JS */
+  :global(.selected-tag-badge) {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    animation: slideIn 0.2s ease;
+    border: 1px solid;
+  }
+
+  :global(.selected-tag-badge.tag-black) {
+    background-color: #1a1a1a;
+    color: white;
+    border-color: #1a1a1a;
+  }
+
+  :global(.selected-tag-badge.tag-white) {
+    background-color: white;
+    color: #1a1a1a;
+    border-color: #e2e8f0;
+  }
+
+  :global(.tag-text) {
+    line-height: 1;
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  :global(.selected-tag-badge:hover) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  :global(.remove-tag) {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 16px;
+    height: 16px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    opacity: 0.7;
+    margin-left: 4px;
+  }
+  
+  :global(.tag-black .remove-tag) {
+    color: white;
+  }
+
+  :global(.tag-white .remove-tag) {
+    color: #1a1a1a;
+  }
+
+  :global(.remove-tag:hover) {
+    opacity: 1;
+    background-color: rgba(128, 128, 128, 0.2);
+  }
+
+  :global(.remove-tag:active) {
+    transform: scale(0.95);
+  }
+
+  :global(.remove-tag svg) {
+    width: 12px;
+    height: 12px;
+  }
+
+  .dropdown-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 6px rgba(30, 111, 62, 0.2);
+  }
+
+  .dropdown-toggle:hover {
+    box-shadow: 0 4px 12px rgba(30, 111, 62, 0.3);
+    transform: translateY(-50%) scale(1.05);
+  }
+
+  .tag-dropdown.open + .dropdown-toggle {
+    transform: translateY(-50%) rotate(180deg);
+  }
+
+  .tag-dropdown {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    right: 0;
+    max-height: 0;
+    overflow: hidden;
+    background: white;
+    border: 2px solid #e8eef0;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(30, 111, 62, 0.12);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 100;
+  }
+
+  .tag-dropdown.open {
+    max-height: 320px;
+    opacity: 1;
+  }
+
+  .tag-search-input-wrapper {
+    padding: 12px;
+    border-bottom: 2px solid #f0f4f5;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(180deg, #ffffff 0%, #fafbfc 100%);
     z-index: 1;
   }
 
-  .slider-arrow:hover {
-    background: var(--color-primary);
-    color: white;
-  }
-
-  .slider-arrow.hidden {
-    opacity: 0.3;
-    pointer-events: none;
-  }
-
-  .tag-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-  }
-
-  .tag-button {
-    padding: var(--space-sm) var(--space-md);
-    border: 2px solid var(--color-primary);
-    background: white;
-    color: var(--color-primary);
-    border-radius: var(--radius-full);
+  .tag-search-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 2px solid #e8eef0;
+    border-radius: 8px;
     font-size: 0.9rem;
-    font-weight: 500;
+    outline: none;
+    transition: all 0.2s ease;
+    background: white;
+  }
+
+  .tag-search-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(30, 111, 62, 0.1);
+  }
+
+  .tag-search-input::placeholder {
+    color: #94a3b8;
+  }
+
+  .tag-options {
+    max-height: 240px;
+    overflow-y: auto;
+    padding: 8px;
+  }
+
+  .tag-options::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .tag-options::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 3px;
+  }
+
+  .tag-options::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 3px;
+  }
+
+  .tag-options::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+  }
+
+  .tag-option {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    white-space: nowrap;
-    flex-shrink: 0;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    user-select: none;
+    margin-bottom: 4px;
   }
 
-  .tag-button:hover {
-    background: var(--color-light);
-    transform: translateY(-2px);
+  .tag-option:hover {
+    background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ec 100%);
+    transform: translateX(4px);
   }
 
-  .tag-button.active {
-    background: var(--color-primary);
-    color: white;
+  .tag-option input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--color-primary);
+    border-radius: 4px;
+  }
+
+  .tag-option span {
+    flex: 1;
+    font-size: 0.9rem;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .tag-option input[type="checkbox"]:checked + span {
+    color: var(--color-primary);
+    font-weight: 600;
   }
 
   .blog-grid {
@@ -285,7 +589,15 @@ const allTags = [...new Set(posts.flatMap(post => post.tags))].sort();
     }
 
     .tag-filter h3 {
-      font-size: 1.1rem;
+      font-size: 1rem;
+    }
+
+    .tag-dropdown.open {
+      max-height: 300px;
+    }
+
+    .tag-options {
+      max-height: 220px;
     }
   }
 </style>
