@@ -1,0 +1,127 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Xogade - Xadrez das Mariñas" description="Información sobre a participación de Xadrez das Mariñas no programa Xogade">
+  <div class="page-header">
+    <div class="container">
+      <h1>Xogade</h1>
+      <p>Deporte escolar — Xadrez das Mariñas</p>
+    </div>
+  </div>
+
+  <section class="xogade-content">
+    <div class="container">
+      <div class="intro-section">
+        <h2 class="intro-heading">Que é Xogade?</h2>
+        <div class="intro-with-logo">
+          <img src="/images/xogade/xogade-banner-xogade.jpg" alt="Logotipo Xogade — Xogos Deportivos Galegos" class="xogade-inline-logo" />
+          <div class="intro-text">
+            <p>Xogade (Xogos Deportivos Galegos) é o programa de deporte escolar da Xunta de Galicia que promove a participación do alumnado en competicións e actividades deportivas organizadas por idades e categorías. No apartado de xadrez, Xogade ofrece torneos escolares provinciais e autonómicos nos que participan centros educativos e clubs deportivos, fomentando o deporte, a convivencia e a formación en valores.</p>
+
+            <p>Levamos participando en Xogade dende 2014, presentando equipos nas categorías escolares e acadando diferentes postos provinciais ao longo dos anos.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2>Clasificacións dos últimos anos</h2>
+
+        <div class="clas-table-wrap">
+          <table class="clas-table" role="table">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Resultado</th>
+                <th>Foto</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>2025</td>
+                <td>CAMPIÓNS PROVINCIAIS 2025</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-champions-2025.jpg" alt="Campións 2025" /></td>
+              </tr>
+              <tr>
+                <td>2022</td>
+                <td>SUBCAMPIÓNS PROVINCIAIS 2022</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-subchampions-2022.jpg" alt="Subcampións 2022" /></td>
+              </tr>
+              <tr>
+                <td>2019</td>
+                <td>SUBCAMPIÓNS 2019</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-2019-subchampions.jpg" alt="Subcampións 2019" /></td>
+              </tr>
+              <tr>
+                <td>2018</td>
+                <td>SUBCAMPIÓNS 2018</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-2018-subchampions.jpg" alt="Subcampións 2018" /></td>
+              </tr>
+              <tr>
+                <td>2017</td>
+                <td>CAMPIÓNS 2017</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-2017-champions.jpg" alt="Campións 2017" /></td>
+              </tr>
+              <tr>
+                <td>2016</td>
+                <td>CAMPIÓNS 2016</td>
+                <td class="img-cell"><img src="/images/xogade/xogade-2016-champions.jpg" alt="Campións 2016" /></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="section-block">
+        <h2>Notas sobre uso de imaxes</h2>
+        <p>Respectamos dereitos de imaxe: se detectas unha imaxe que queres que retiremos, contacta en <a href="mailto:xdm@xadrecista.eu">xdm@xadrecista.eu</a> co asunto "Retirada imaxe".</p>
+      </div>
+
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-header { background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-hover) 100%); color: white; padding: var(--space-xl) 0; text-align: center; }
+  .page-header h1 { margin: 0; font-size: 2.4rem; color: rgba(255,255,255,0.98); }
+  .page-header p { margin: 0.375rem 0 0; color: rgba(255,255,255,0.95); }
+  /* Headings alignment: left on desktop, centered on small screens */
+  .intro-heading,
+  .section-block h2 { text-align: left; margin-top: 0; margin-bottom: 0.75rem; }
+  .intro-with-logo { display:flex; gap: var(--space-md); align-items:center; }
+  .xogade-inline-logo { width: 120px; height: auto; border-radius:0; background: transparent; box-shadow:none; border:none; flex-shrink:0; }
+  .intro-text { max-width: 900px; }
+  @media (max-width: 799px) {
+    .intro-with-logo { flex-direction: column; align-items:center; text-align: center; }
+    .xogade-inline-logo { width: 140px; }
+    .intro-heading,
+    .section-block h2 { text-align: center; }
+  }
+  .gallery { display:flex; gap:var(--space-md); flex-wrap:wrap; align-items:center; justify-content:center; }
+  .gallery img { width: 180px; height: auto; border-radius:8px; box-shadow:0 4px 10px rgba(0,0,0,0.08); }
+  .gallery-local img { max-width: 400px; display:block; margin: var(--space-md) auto; }
+  .intro-section p { max-width: 900px; margin: 0 auto; }
+  .clasificaciones { max-width: 700px; margin: 0 auto; list-style: none; padding: 0; }
+  .clasificaciones li { padding: 0.25rem 0; border-bottom: 1px dashed rgba(0,0,0,0.06); }
+  .clasificaciones li strong { color: var(--color-primary); }
+  .clas-grid { display:grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: var(--space-md); }
+  .clas-item { display:flex; gap: var(--space-sm); align-items:center; background: white; padding: var(--space-sm); border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.05); }
+  .clas-item img { width: 110px; height: 88px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+  .clas-text { font-weight:700; color: var(--color-text); margin-left: var(--space-sm); }
+  .clas-table-wrap { overflow-x:auto; }
+  .clas-table { width:100%; border-collapse:collapse; margin-top: var(--space-sm); }
+  .clas-table th, .clas-table td { text-align:left; padding: 0.5rem 0.75rem; border-bottom:1px solid rgba(0,0,0,0.06); vertical-align:middle; }
+  .clas-table thead th { font-weight:700; color:var(--color-text); }
+  .clas-table td.img-cell { width: 220px; }
+  .clas-table td.img-cell img { width: 180px; max-width:100%; height:auto; border-radius:8px; object-fit:cover; box-shadow:0 6px 18px rgba(0,0,0,0.08); }
+
+  @media (min-width: 900px) {
+    .clas-table td.img-cell { width: 260px; }
+    .clas-table td.img-cell img { width: 220px; }
+  }
+  .gallery-more { margin-top: var(--space-md); display:flex; gap: var(--space-sm); justify-content:center; }
+  .gallery-more img { width:120px; border-radius:8px; }
+  .gallery-more.originals { justify-content:center; gap: var(--space-lg); }
+  .gallery-more.originals img { width:220px; height:auto; border-radius:8px; box-shadow:0 6px 20px rgba(0,0,0,0.12); }
+</style>
+
