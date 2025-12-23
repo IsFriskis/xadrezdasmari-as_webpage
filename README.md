@@ -1,8 +1,52 @@
 # xadrezdasmari-as_webpage
 
-Modern website for Xadrez das Mariñas chess club built with Astro.
+Modern website for Xadrez das Mariñas chess club.
 
-## 🚀 Project Structure
+## 📁 Projects
+
+This repository contains two projects:
+
+### xdmpage
+Static website built with Astro and DecapCMS.
+- Located in `/xdmpage`
+- See [xdmpage documentation](./xdmpage/README.md)
+
+### xdmpayload
+Modern web application with PayloadCMS backend and Astro frontend.
+- Located in `/xdmpayload`
+- Backend: PayloadCMS (headless CMS with admin panel)
+- Frontend: Astro (static site generator)
+- See [xdmpayload documentation](./xdmpayload/PROJECT_README.md)
+
+## 🚀 Getting Started
+
+### xdmpage (Astro + DecapCMS)
+
+```bash
+cd xdmpage
+npm install
+npm run dev
+```
+
+### xdmpayload (PayloadCMS + Astro)
+
+#### Start Backend (PayloadCMS)
+```bash
+cd xdmpayload
+npm install
+npm run dev
+```
+Access admin panel at http://localhost:3000/admin
+
+#### Start Frontend (Astro)
+```bash
+cd xdmpayload/frontend
+npm install
+npm run dev
+```
+Access website at http://localhost:4321
+
+## 🚀 Project Structure (xdmpage)
 
 ```
 /
