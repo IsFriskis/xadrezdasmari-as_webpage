@@ -53,3 +53,25 @@ coverage/
 
 # User uploads (CMS generated content)
 public/images/uploads/
+
+
+# WordPress core (optional - some prefer not to track core)
+wordpress/wp-admin/
+wordpress/wp-includes/
+
+# Configuration
+wordpress/wp-config.php
+# Uploads
+wordpress/wp-content/uploads/
+
+# Plugins (optional - track only custom ones)
+wordpress/wp-content/plugins/*
+!wordpress/wp-content/plugins/your-custom-plugin/
+# Themes (track only your custom theme)
+wordpress/wp-content/themes/*
+!wordpress/wp-content/themes/your-custom-theme/
+
+# Cache and logs
+*.log
+wordpress/wp-content/cache/
+wordpress/wp-content/upgrade/
