@@ -183,7 +183,7 @@ p {
   width: 60px;
   height: 60px;
   object-fit: contain;
-  border-radius: 50%;
+  border-radius: var(--border-radius);
   background: white;
   padding: 4px;
 }
@@ -321,7 +321,7 @@ p {
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 320px;
+  min-height: 160px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -369,7 +369,7 @@ p {
   z-index: 2;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
   width: 100%;
 }
 
@@ -379,22 +379,22 @@ p {
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 2rem;
   color: var(--color-white);
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
   line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 1.25rem;
+  font-size: 1rem;
   opacity: 0.95;
-  margin-bottom: var(--space-lg);
-  line-height: 1.6;
+  margin-bottom: var(--space-sm);
+  line-height: 1.5;
 }
 
 @media (max-width: 992px) {
   .hero {
-    min-height: 280px;
+    min-height: 140px;
   }
   
   .hero-background {
@@ -644,9 +644,11 @@ p {
 }
 
 .widget-image {
-  width: 100%;
-  height: auto;
+  width: 195px;
+  height: 100px;
   object-fit: contain;
+  display: block;
+  margin: 0 auto;
 }
 
 /* Recent posts widget */
