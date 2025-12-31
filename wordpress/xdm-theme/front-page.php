@@ -35,18 +35,18 @@ $hero_image = get_theme_mod('xdm_hero_image');
     </div>
 </section>
 
-<!-- Noticias Section -->
+<!-- Novas Section -->
 <section class="section">
     <div class="container">
-        <h2 class="section-title-left">Noticias</h2>
+        <h2 class="section-title-left">Novas</h2>
         
         <div class="content-area">
             <div class="main-content">
                 <div class="cards-grid cards-grid-2">
                     <?php
-                    $noticias_query = xdm_get_posts_by_category('novas', 2);
-                    if ($noticias_query->have_posts()) :
-                        while ($noticias_query->have_posts()) : $noticias_query->the_post();
+                    $novas_query = xdm_get_posts_by_category('novas', 2);
+                    if ($novas_query->have_posts()) :
+                        while ($novas_query->have_posts()) : $novas_query->the_post();
                             xdm_post_card(true, true);
                         endwhile;
                         wp_reset_postdata();
