@@ -398,7 +398,7 @@ function xdm_post_card($show_category = true, $show_excerpt = true) {
                 <p class="card-excerpt"><?php echo get_the_excerpt(); ?></p>
             <?php endif; ?>
             <div class="card-footer">
-                <a href="<?php the_permalink(); ?>" class="btn btn-outline">Ver máis novas →</a>
+                <a href="<?php the_permalink(); ?>" class="btn btn-outline">Leer →</a>
             </div>
         </div>
     </article>
