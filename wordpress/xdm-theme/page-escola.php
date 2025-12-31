@@ -23,34 +23,7 @@ get_header();
         <div class="main-content">
             <div class="entry-content">
                 <?php the_content(); ?>
-            </div>
-            
-            <!-- Courses/Classes Cards -->
-            <div class="cards-grid mt-xl" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">👶</div>
-                        <h3>Iniciación</h3>
-                        <p>Para nenos e nenas a partir de 5 anos que queren aprender as bases do xadrez.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">📈</div>
-                        <h3>Perfeccionamento</h3>
-                        <p>Para xogadores que xa coñecen as regras e queren mellorar o seu nivel.</p>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div style="font-size: 3rem; margin-bottom: 1rem;">🏆</div>
-                        <h3>Competición</h3>
-                        <p>Adestramento para xogadores que participan en torneos e competicións.</p>
-                    </div>
-                </div>
-            </div>
+            </div>           
             
             <h2 class="section-title-left mt-xl">Últimas Publicacións de Formación</h2>
             
