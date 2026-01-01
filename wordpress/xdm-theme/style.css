@@ -126,10 +126,10 @@ p {
 .content-area {
   display: grid;
   grid-template-columns: 1fr 350px;
-  gap: var(--space-xl);
+  gap: var(--space-lg);
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-xl) var(--space-md);
+  padding: var(--space-md) var(--space-md);
 }
 
 .content-area.no-sidebar {
@@ -457,7 +457,7 @@ p {
    Section Styles
    ========================================================================== */
 .section {
-  padding: var(--space-2xl) var(--space-md);
+  padding: var(--space-lg) var(--space-md);
 }
 
 .section-alt {
@@ -466,10 +466,10 @@ p {
 
 .section-title {
   text-align: center;
-  margin-bottom: var(--space-xl);
+  margin-bottom: var(--space-lg);
   font-size: 2rem;
   position: relative;
-  padding-bottom: var(--space-sm);
+  padding-bottom: var(--space-xs);
 }
 
 .section-title::after {
@@ -488,7 +488,7 @@ p {
   text-align: left;
   border-bottom: 3px solid var(--color-primary);
   padding-bottom: var(--space-xs);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 .section-title-left::after {
@@ -501,7 +501,7 @@ p {
 .cards-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .cards-grid-2 {
@@ -616,7 +616,7 @@ p {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .widget {
