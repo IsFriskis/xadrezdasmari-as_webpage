@@ -45,7 +45,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
             <div class="main-content">
                 <div class="cards-grid cards-grid-2">
                     <?php
-                    $novas_query = xdm_get_posts_by_category('novas', 2);
+                    $novas_query = xdm_get_posts_by_category('novas', 4);
                     if ($novas_query->have_posts()) :
                         while ($novas_query->have_posts()) : $novas_query->the_post();
                             xdm_post_card(true, true);
@@ -53,7 +53,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
                         wp_reset_postdata();
                     else :
                         // Fallback to latest posts
-                        $latest_posts = new WP_Query(array('posts_per_page' => 2));
+                        $latest_posts = new WP_Query(array('posts_per_page' => 4));
                         while ($latest_posts->have_posts()) : $latest_posts->the_post();
                             xdm_post_card(true, true);
                         endwhile;
