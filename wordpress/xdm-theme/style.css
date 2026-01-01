@@ -321,47 +321,46 @@ p {
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 160px;
+  min-height: 350px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  background-color: var(--color-primary);
 }
 
-.hero-background {
+.hero-background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+}
+
+.hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 50%;
   height: 100%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background: linear-gradient(135deg, rgba(30, 111, 62, 0.95) 0%, rgba(21, 90, 46, 0.9) 100%);
   z-index: 1;
 }
 
-.hero-background::after {
+.hero-overlay::after {
   content: '';
   position: absolute;
   top: 0;
-  right: -100px;
-  width: 200px;
+  right: -80px;
+  width: 160px;
   height: 100%;
-  background: inherit;
+  background: linear-gradient(135deg, rgba(30, 111, 62, 0.95) 0%, rgba(21, 90, 46, 0.9) 100%);
   transform: skewX(-10deg);
-}
-
-.hero-image {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 55%;
-  height: 100%;
-  z-index: 0;
-}
-
-.hero-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: right center;
 }
 
 .hero-content {
@@ -369,7 +368,7 @@ p {
   z-index: 2;
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: var(--space-lg) var(--space-md);
+  padding: var(--space-xl) var(--space-md);
   width: 100%;
 }
 
@@ -379,14 +378,14 @@ p {
 }
 
 .hero h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   color: var(--color-white);
   margin-bottom: var(--space-sm);
   line-height: 1.1;
 }
 
 .hero-subtitle {
-  font-size: 1rem;
+  font-size: 1.1rem;
   opacity: 0.95;
   margin-bottom: var(--space-sm);
   line-height: 1.5;
@@ -394,23 +393,19 @@ p {
 
 @media (max-width: 992px) {
   .hero {
-    min-height: 140px;
+    min-height: 280px;
   }
   
-  .hero-background {
+  .hero-overlay {
     width: 100%;
   }
   
-  .hero-background::after {
-    display: none;
-  }
-  
-  .hero-image {
+  .hero-overlay::after {
     display: none;
   }
   
   .hero h1 {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 }
 

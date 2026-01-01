@@ -17,16 +17,17 @@ $hero_image = get_theme_mod('xdm_hero_image');
 
 <!-- Hero Section -->
 <section class="hero">
-    <div class="hero-background"></div>
     <?php if ($hero_image) : ?>
-        <div class="hero-image">
-            <img src="<?php echo esc_url($hero_image); ?>" alt="<?php echo esc_attr($hero_title); ?>">
+        <div class="hero-background-image" style="background-image: url('<?php echo esc_url($hero_image); ?>');">
+        </div>
+    <?php elseif (file_exists(get_template_directory() . '/assets/hero.png')) : ?>
+        <div class="hero-background-image" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/hero.png'); ?>');">
         </div>
     <?php elseif (file_exists(get_template_directory() . '/assets/hero.jpg')) : ?>
-        <div class="hero-image">
-            <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/hero.jpg'); ?>" alt="<?php echo esc_attr($hero_title); ?>">
+        <div class="hero-background-image" style="background-image: url('<?php echo esc_url(get_template_directory_uri() . '/assets/hero.jpg'); ?>');">
         </div>
     <?php endif; ?>
+    <div class="hero-overlay"></div>
     <div class="hero-content">
         <div class="hero-text">
             <h1><?php echo esc_html($hero_title); ?></h1>
