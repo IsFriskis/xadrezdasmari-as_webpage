@@ -70,7 +70,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
                     <h3 class="widget-title">Actividades en XOGADE</h3>
                     <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/xogade.jpg'); ?>" alt="XOGADE" class="widget-image" onerror="this.style.display='none'">
                     <div class="widget-content">
-                        <p><a href="<?php echo esc_url(home_url('/xogade')); ?>" class="btn">Ver actividades</a></p>
+                        <p><a href="<?php echo esc_url(home_url('/index.php/xogade/')); ?>" class="btn">Ver actividades</a></p>
                     </div>
                 </div>
                 
@@ -102,7 +102,13 @@ $hero_image = get_theme_mod('xdm_hero_image');
                     <div class="widget-content">
                         <ul class="widget-posts-list">
                             <?php
-                            $formacion_query = xdm_get_posts_by_category('escola', 4);
+                            // Mix posts from 'escola' (novas/escola) and 'leccions' (xadrez/leccions) categories
+                            $formacion_query = new WP_Query(array(
+                                'category_name' => 'escola,leccions',
+                                'posts_per_page' => 4,
+                                'orderby' => 'date',
+                                'order' => 'DESC'
+                            ));
                             if ($formacion_query->have_posts()) :
                                 while ($formacion_query->have_posts()) : $formacion_query->the_post();
                                 ?>
@@ -118,7 +124,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
                             endif;
                             ?>
                         </ul>
-                        <p class="mt-md"><a href="<?php echo esc_url(home_url('/clases')); ?>" class="btn btn-outline">Ver máis titoriais</a></p>
+                        <p class="mt-md"><a href="<?php echo esc_url(home_url('/index.php/category/novas/escola/')); ?>" class="btn btn-outline">Ver máis titoriais</a></p>
                     </div>
                 </div>
             </aside>

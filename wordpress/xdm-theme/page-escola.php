@@ -45,8 +45,22 @@ get_header();
             <div class="widget">
                 <h3 class="widget-title">Información</h3>
                 <div class="widget-content">
-                    <p><strong>📅 Horarios:</strong><br>Luns a Venres</p>
-                    <p><strong>📍 Lugar:</strong><br>As Mariñas, Galicia</p>
+                    <p><strong>📅 Horarios por grupo:</strong></p>
+                    <ul class="widget-posts-list">
+                        <li class="widget-post-item">
+                            <strong>Iniciación ó Xadrez</strong>
+                            <span class="widget-post-date">Luns de 18:00 a 19:00</span>
+                        </li>
+                        <li class="widget-post-item">
+                            <strong>Adestramento — Nivel III</strong>
+                            <span class="widget-post-date">Luns de 19:00 a 20:30</span>
+                        </li>
+                        <li class="widget-post-item">
+                            <strong>Xadrez de Iniciación</strong>
+                            <span class="widget-post-date">Sábado de 10:30 a 11:30</span>
+                        </li>
+                    </ul>
+                    <p class="mt-md"><strong>📍 Lugar:</strong><br>As Mariñas, Galicia</p>
                     <p><strong>👥 Idades:</strong><br>Desde 5 anos</p>
                     <p class="mt-md">
                         <a href="<?php echo esc_url(home_url('/contacto')); ?>" class="btn">Contactar</a>
