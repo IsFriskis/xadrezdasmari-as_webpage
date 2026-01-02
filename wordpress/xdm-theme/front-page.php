@@ -34,7 +34,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
             <p class="hero-subtitle"><?php echo esc_html($hero_subtitle); ?></p>
             <div class="hero-buttons">
                 <a href="<?php echo esc_url(home_url('/index.php/escola/')); ?>" class="btn-hero btn-hero-primary">Únete á Escola</a>
-                <a href="<?php echo esc_url(home_url('/index.php/torneos/')); ?>" class="btn-hero btn-hero-outline">Vindeiros Torneos</a>
+                <a href="<?php echo esc_url(home_url('/index.php/category/novas/torneos/')); ?>" class="btn-hero btn-hero-outline">Vindeiros Torneos</a>
             </div>
         </div>
     </div>
