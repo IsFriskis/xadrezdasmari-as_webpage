@@ -7,7 +7,7 @@
             <div class="footer-brand">
                 <h3><?php bloginfo('name'); ?></h3>
                 <p><?php bloginfo('description'); ?></p>
-                <p>Promovendo o xadrez en Galicia dende hai máis de 20 anos.</p>
+                <p>Promovendo o xadrez en Galicia dende 2013.</p>
                 <?php xdm_social_links(); ?>
             </div>
             
