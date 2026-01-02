@@ -48,20 +48,19 @@ get_header();
                     <p><strong>📅 Horarios por grupo:</strong></p>
                     <ul class="widget-posts-list">
                         <li class="widget-post-item">
-                            <strong>Iniciación ó Xadrez</strong>
+                            <strong>Iniciación ó Xadrez</strong><br>
                             <span class="widget-post-date">Luns de 18:00 a 19:00</span>
                         </li>
                         <li class="widget-post-item">
-                            <strong>Adestramento — Nivel III</strong>
+                            <strong>Adestramento — Nivel III</strong><br>
                             <span class="widget-post-date">Luns de 19:00 a 20:30</span>
                         </li>
                         <li class="widget-post-item">
-                            <strong>Xadrez de Iniciación</strong>
+                            <strong>Xadrez de Iniciación</strong><br>
                             <span class="widget-post-date">Sábado de 10:30 a 11:30</span>
                         </li>
                     </ul>
-                    <p class="mt-md"><strong>📍 Lugar:</strong><br>As Mariñas, Galicia</p>
-                    <p><strong>👥 Idades:</strong><br>Desde 5 anos</p>
+                    <p class="mt-md"><strong>📍 Lugar:</strong><br>Casa da Cultura de Vila Concepción, Cambre</p>                    
                     <p class="mt-md">
                         <a href="<?php echo esc_url(home_url('/index.php/contact/')); ?>" class="btn">Contactar</a>
                     </p>
