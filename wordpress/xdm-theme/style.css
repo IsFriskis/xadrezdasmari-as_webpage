@@ -680,6 +680,70 @@ p {
   font-size: 0.8rem;
 }
 
+/* Widget Arquivo (Archive) */
+.widget-arquivo .arquivo-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.widget-arquivo .arquivo-year,
+.widget-arquivo .arquivo-month {
+  margin-bottom: 0;
+}
+
+.widget-arquivo .arquivo-toggle {
+  display: block;
+  padding: 6px 0;
+  cursor: pointer;
+  color: var(--color-text);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.widget-arquivo .arquivo-toggle:hover {
+  color: var(--color-primary);
+}
+
+.widget-arquivo .toggle-icon {
+  display: inline-block;
+  width: 16px;
+  font-size: 0.75rem;
+  color: var(--color-primary);
+}
+
+.widget-arquivo .arquivo-months {
+  list-style: none;
+  padding: 0 0 0 20px;
+  margin: 0;
+}
+
+.widget-arquivo .arquivo-month .arquivo-toggle {
+  font-weight: 400;
+  font-size: 0.95rem;
+}
+
+.widget-arquivo .arquivo-posts {
+  list-style: none;
+  padding: 4px 0 8px 20px;
+  margin: 0;
+}
+
+.widget-arquivo .arquivo-posts li {
+  padding: 3px 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.widget-arquivo .arquivo-posts a {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+.widget-arquivo .arquivo-posts a:hover {
+  text-decoration: underline;
+}
+
 /* ==========================================================================
    Footer
    ========================================================================== */
