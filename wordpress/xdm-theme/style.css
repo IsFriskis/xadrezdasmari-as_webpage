@@ -19,17 +19,30 @@ Requires PHP: 7.4
    CSS Variables
    ========================================================================== */
 :root {
-  /* Color Palette - Professional Green theme */
-  --color-primary: #1e6f3e;
-  --color-secondary: #155a2e;
-  --color-accent: #2d8f52;
-  --color-light: #f8f9fa;
+  /* Color Palette - Professional Deep Navy theme (2026 Redesign) */
+  --color-primary: #1A2B4C;       /* Deep Navy - Professional base */
+  --color-secondary: #0B121F;     /* Darker Navy */
+  --color-accent: #2563EB;        /* Bright Blue - Primary buttons & CTAs */
+  --color-highlight: #FFD700;     /* Gold - Active/winning states */
+  --color-light: #F8F9FA;         /* Off-white - Section backgrounds */
   --color-dark: #1a1a1a;
-  --color-text: #2c3e50;
+  --color-text: #333333;          /* Dark Gray - Main text */
   --color-text-light: #6c757d;
   --color-border: #dee2e6;
-  --color-hover: #16803d;
+  --color-hover: #1D4ED8;         /* Darker blue for hover */
   --color-white: #ffffff;
+  
+  /* Status Colors - Tournament Traffic Light System */
+  --color-status-open: #dcfce7;
+  --color-status-open-text: #166534;
+  --color-status-progress: #fef9c3;
+  --color-status-progress-text: #854d0e;
+  --color-status-closed: #fee2e2;
+  --color-status-closed-text: #991b1b;
+  
+  /* Legacy Green (for gradual transition) */
+  --color-green: #1e6f3e;
+  --color-green-dark: #155a2e;
   
   /* Spacing */
   --space-xs: 0.5rem;
@@ -40,13 +53,20 @@ Requires PHP: 7.4
   --space-2xl: 4rem;
   
   /* Typography */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   
   /* Sizing */
   --max-width: 1400px;
   --border-radius: 8px;
   --transition: 0.3s ease;
+  
+  /* Shadows */
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
 }
+
+/* Google Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 /* ==========================================================================
    Reset & Base
@@ -67,7 +87,7 @@ body {
   font-family: var(--font-sans);
   line-height: 1.6;
   color: var(--color-text);
-  background-color: var(--color-white);
+  background-color: var(--color-light);
 }
 
 img {
@@ -317,15 +337,16 @@ p {
 }
 
 /* ==========================================================================
-   Hero Section
+   Hero Section (2026 Redesign - Bold Minimalism)
    ========================================================================== */
 .hero {
   position: relative;
-  min-height: 350px;
+  min-height: 380px;
   display: flex;
   align-items: center;
   overflow: hidden;
   background-color: var(--color-primary);
+  border-bottom: 4px solid var(--color-accent);
 }
 
 .hero-background-image {
@@ -346,9 +367,9 @@ p {
   position: absolute;
   top: 0;
   left: 0;
-  width: 50%;
+  width: 55%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(30, 111, 62, 0.95) 0%, rgba(21, 90, 46, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(26, 43, 76, 0.95) 0%, rgba(11, 18, 31, 0.9) 100%);
   z-index: 1;
 }
 
@@ -359,7 +380,7 @@ p {
   right: -80px;
   width: 160px;
   height: 100%;
-  background: linear-gradient(135deg, rgba(30, 111, 62, 0.95) 0%, rgba(21, 90, 46, 0.9) 100%);
+  background: linear-gradient(135deg, rgba(26, 43, 76, 0.95) 0%, rgba(11, 18, 31, 0.9) 100%);
   transform: skewX(-10deg);
 }
 
@@ -373,22 +394,65 @@ p {
 }
 
 .hero-text {
-  max-width: 500px;
+  max-width: 550px;
   color: var(--color-white);
 }
 
 .hero h1 {
-  font-size: 2.5rem;
+  font-size: 2.8rem;
   color: var(--color-white);
   margin-bottom: var(--space-sm);
   line-height: 1.1;
+  font-weight: 700;
 }
 
 .hero-subtitle {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   opacity: 0.95;
-  margin-bottom: var(--space-sm);
-  line-height: 1.5;
+  margin-bottom: var(--space-md);
+  line-height: 1.6;
+}
+
+/* Hero CTA Buttons */
+.hero-buttons {
+  display: flex;
+  gap: var(--space-sm);
+  flex-wrap: wrap;
+  margin-top: var(--space-md);
+}
+
+.btn-hero {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 30px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.btn-hero-primary {
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: 2px solid var(--color-accent);
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--color-highlight);
+  border-color: var(--color-highlight);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+}
+
+.btn-hero-outline {
+  background-color: transparent;
+  color: var(--color-white);
+  border: 2px solid var(--color-white);
+}
+
+.btn-hero-outline:hover {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  transform: translateY(-2px);
 }
 
 @media (max-width: 992px) {
@@ -509,22 +573,23 @@ p {
 }
 
 /* ==========================================================================
-   Post Cards
+   Post Cards (2026 Redesign - Bold Minimalism)
    ========================================================================== */
 .card {
   background: var(--color-white);
   border-radius: var(--border-radius);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--shadow-card);
   overflow: hidden;
   transition: transform var(--transition), box-shadow var(--transition);
   height: 100%;
   display: flex;
   flex-direction: column;
+  border-left: 5px solid var(--color-accent);
 }
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  box-shadow: var(--shadow-hover);
 }
 
 .card-image {
@@ -1152,6 +1217,90 @@ select:focus {
 .mb-lg { margin-bottom: var(--space-lg); }
 
 .hidden { display: none; }
+
+/* ==========================================================================
+   Status Badges (Tournament Traffic Light System)
+   ========================================================================== */
+.status-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-open,
+.status-aberto {
+  background-color: var(--color-status-open);
+  color: var(--color-status-open-text);
+}
+
+.status-progress,
+.status-en-curso {
+  background-color: var(--color-status-progress);
+  color: var(--color-status-progress-text);
+}
+
+.status-closed,
+.status-pechado,
+.status-rematado {
+  background-color: var(--color-status-closed);
+  color: var(--color-status-closed-text);
+}
+
+/* Card with status */
+.card-status {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  z-index: 5;
+}
+
+/* ==========================================================================
+   Hero Mobile Responsive
+   ========================================================================== */
+@media (max-width: 992px) {
+  .hero {
+    min-height: 320px;
+  }
+  
+  .hero-overlay {
+    width: 100%;
+  }
+  
+  .hero-overlay::after {
+    display: none;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .hero-buttons {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .btn-hero {
+    text-align: center;
+  }
+}
 
 /* ==========================================================================
    Print Styles

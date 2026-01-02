@@ -361,9 +361,20 @@ function xdm_social_links() {
 }
 
 /**
- * Display post card
+ * Display post card with optional status badge
  */
 function xdm_post_card($show_category = true, $show_excerpt = true) {
+    // Check for tournament status (custom field or tag)
+    $status = get_post_meta(get_the_ID(), 'torneo_status', true);
+    $status_labels = array(
+        'aberto' => 'Aberto',
+        'open' => 'Aberto',
+        'en-curso' => 'En curso',
+        'progress' => 'En curso',
+        'pechado' => 'Pechado',
+        'closed' => 'Pechado',
+        'rematado' => 'Rematado'
+    );
     ?>
     <article class="card">
         <div class="card-image">
@@ -377,6 +388,9 @@ function xdm_post_card($show_category = true, $show_excerpt = true) {
                         <span class="card-category"><?php echo esc_html($categories[0]->name); ?></span>
                     <?php endif;
                 endif; ?>
+                <?php if ($status && isset($status_labels[$status])) : ?>
+                    <span class="status-badge status-<?php echo esc_attr($status); ?> card-status"><?php echo esc_html($status_labels[$status]); ?></span>
+                <?php endif; ?>
             <?php else : ?>
                 <a href="<?php the_permalink(); ?>">
                     <div class="card-placeholder">♔</div>
@@ -387,6 +401,9 @@ function xdm_post_card($show_category = true, $show_excerpt = true) {
                         <span class="card-category"><?php echo esc_html($categories[0]->name); ?></span>
                     <?php endif;
                 endif; ?>
+                <?php if ($status && isset($status_labels[$status])) : ?>
+                    <span class="status-badge status-<?php echo esc_attr($status); ?> card-status"><?php echo esc_html($status_labels[$status]); ?></span>
+                <?php endif; ?>
             <?php endif; ?>
         </div>
         <div class="card-content">
@@ -406,10 +423,13 @@ function xdm_post_card($show_category = true, $show_excerpt = true) {
 }
 
 /**
- * Add preconnect for Google Fonts (if used)
+ * Add preconnect for Google Fonts (Inter font)
  */
 function xdm_resource_hints($urls, $relation_type) {
     if ('preconnect' === $relation_type) {
+        $urls[] = array(
+            'href' => 'https://fonts.googleapis.com',
+        );
         $urls[] = array(
             'href' => 'https://fonts.gstatic.com',
             'crossorigin',
