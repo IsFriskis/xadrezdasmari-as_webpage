@@ -63,7 +63,7 @@ get_header();
                     <p class="mt-md"><strong>📍 Lugar:</strong><br>As Mariñas, Galicia</p>
                     <p><strong>👥 Idades:</strong><br>Desde 5 anos</p>
                     <p class="mt-md">
-                        <a href="<?php echo esc_url(home_url('/contacto')); ?>" class="btn">Contactar</a>
+                        <a href="<?php echo esc_url(home_url('/index.php/contact/')); ?>" class="btn">Contactar</a>
                     </p>
                 </div>
             </div>

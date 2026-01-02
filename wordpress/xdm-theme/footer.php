@@ -26,7 +26,7 @@
             <div class="footer-section">
                 <h4>Contacto</h4>
                 <ul>
-                    <li><a href="<?php echo esc_url(home_url('/contacto')); ?>">Contactar</a></li>
+                    <li><a href="<?php echo esc_url(home_url('/index.php/contact/')); ?>">Contactar</a></li>
                     <li><a href="<?php echo esc_url(home_url('/clases')); ?>">Clases</a></li>
                     <li><a href="<?php echo esc_url(home_url('/torneos')); ?>">Torneos</a></li>
                 </ul>
