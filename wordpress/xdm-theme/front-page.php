@@ -49,7 +49,7 @@ $hero_image = get_theme_mod('xdm_hero_image');
             <div class="main-content">
                 <div class="cards-grid cards-grid-2">
                     <?php
-                    $novas_query = xdm_get_posts_by_category('novas', 4);
+                    $novas_query = xdm_get_posts_by_category('novas', 6);
                     if ($novas_query->have_posts()) :
                         while ($novas_query->have_posts()) : $novas_query->the_post();
                             xdm_post_card(true, true);
