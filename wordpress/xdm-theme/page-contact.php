@@ -32,7 +32,10 @@ get_header();
                         <div class="card-content text-center">
                             <div style="font-size: 2.5rem; margin-bottom: 1rem;">📍</div>
                             <h3>Localización</h3>
-                            <p>As Mariñas, Galicia</p>
+                            <p>Casa da Cultura Vila Concepción</p>
+                            <p>Praza Vila Concepción, 1</p>
+                            <p>15679 Cambre, </p>       
+                            <p>A Coruña</p>
                         </div>
                     </div>
                     
@@ -40,7 +43,7 @@ get_header();
                         <div class="card-content text-center">
                             <div style="font-size: 2.5rem; margin-bottom: 1rem;">📧</div>
                             <h3>Email</h3>
-                            <p><a href="mailto:info@xadrezdasmarinas.gal">info@xadrezdasmarinas.gal</a></p>
+                            <p><a href="mailto:correo@xdm.es">correo@xdm.es</a></p>
                         </div>
                     </div>
                     
